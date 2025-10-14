@@ -1,0 +1,410 @@
+/* ========================================
+ * Selectbox Component Styles
+ * 피그마 디자인 시스템 기반 구현
+ * ======================================== */
+
+/* ========================================
+ * Base Selectbox Styles
+ * ======================================== */
+
+.selectbox {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.selectbox.fullWidth {
+  width: 100%;
+}
+
+.selectContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 8px;
+  border: 1px solid #c7c7c7;
+  background-color: #ffffff;
+  cursor: pointer;
+  outline: none;
+}
+
+.selectContainer:focus {
+  border-color: #497cff;
+  box-shadow: 0 0 0 2px rgba(73, 124, 255, 0.1);
+}
+
+.selectContainer:hover:not(.disabled) {
+  border-color: #ababab;
+}
+
+/* ========================================
+ * Selected Value Display
+ * ======================================== */
+
+.selectedValue {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.text {
+  font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-weight: 500;
+  color: #1c1c1c;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ========================================
+ * Icon Container
+ * ======================================== */
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon {
+  /* 아이콘 기본 스타일 */
+}
+
+.selectbox.open .icon {
+  /* 열린 상태에서는 아이콘 회전 없음 */
+}
+
+/* ========================================
+ * Dropdown Styles
+ * ======================================== */
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border: 1px solid #c7c7c7;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-weight: 500;
+  color: #1c1c1c;
+  cursor: pointer;
+}
+
+.option:hover:not(.optionDisabled) {
+  background-color: #f2f2f2;
+}
+
+.option.selected {
+  background-color: #497cff;
+  color: #ffffff;
+}
+
+.option.selected:hover {
+  background-color: #3a5cf3;
+}
+
+.option.optionDisabled {
+  color: #ababab;
+  cursor: not-allowed;
+}
+
+/* ========================================
+ * Size Variants
+ * ======================================== */
+
+/* Small Size */
+.selectbox.small .selectContainer {
+  height: 32px;
+  padding: 0 8px;
+  gap: 8px;
+}
+
+.selectbox.small .text {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.selectbox.small .iconContainer {
+  width: 16px;
+  height: 16px;
+}
+
+.selectbox.small .option {
+  padding: 6px 8px;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+/* Medium Size */
+.selectbox.medium .selectContainer {
+  height: 48px;
+  padding: 0 12px;
+  gap: 8px;
+}
+
+.selectbox.medium .text {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.selectbox.medium .iconContainer {
+  width: 24px;
+  height: 24px;
+}
+
+.selectbox.medium .option {
+  padding: 12px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* Large Size */
+.selectbox.large .selectContainer {
+  height: 56px;
+  padding: 0 16px;
+  gap: 12px;
+}
+
+.selectbox.large .text {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.selectbox.large .iconContainer {
+  width: 28px;
+  height: 28px;
+}
+
+.selectbox.large .option {
+  padding: 16px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+/* ========================================
+ * Variant Styles
+ * ======================================== */
+
+/* Primary Variant */
+.selectbox.primary .selectContainer {
+  border-color: #c7c7c7;
+  background-color: #ffffff;
+}
+
+.selectbox.primary .selectContainer:focus {
+  border-color: #497cff;
+  box-shadow: 0 0 0 2px rgba(73, 124, 255, 0.1);
+}
+
+.selectbox.primary .selectContainer:hover:not(.disabled) {
+  border-color: #ababab;
+}
+
+.selectbox.primary .dropdown {
+  border-color: #c7c7c7;
+  background-color: #ffffff;
+}
+
+.selectbox.primary .option.selected {
+  background-color: #497cff;
+  color: #ffffff;
+}
+
+/* Secondary Variant */
+.selectbox.secondary .selectContainer {
+  border-color: #e4e4e4;
+  background-color: #f8f8fa;
+}
+
+.selectbox.secondary .selectContainer:focus {
+  border-color: #6da5fa;
+  box-shadow: 0 0 0 2px rgba(109, 165, 250, 0.1);
+}
+
+.selectbox.secondary .selectContainer:hover:not(.disabled) {
+  border-color: #d4d3d3;
+}
+
+.selectbox.secondary .dropdown {
+  border-color: #e4e4e4;
+  background-color: #f8f8fa;
+}
+
+.selectbox.secondary .option.selected {
+  background-color: #6da5fa;
+  color: #ffffff;
+}
+
+/* Tertiary Variant */
+.selectbox.tertiary .selectContainer {
+  border-color: #d4d3d3;
+  background-color: #ffffff;
+}
+
+.selectbox.tertiary .selectContainer:focus {
+  border-color: #93beff;
+  box-shadow: 0 0 0 2px rgba(147, 190, 255, 0.1);
+}
+
+.selectbox.tertiary .selectContainer:hover:not(.disabled) {
+  border-color: #919191;
+}
+
+.selectbox.tertiary .dropdown {
+  border-color: #d4d3d3;
+  background-color: #ffffff;
+}
+
+.selectbox.tertiary .option.selected {
+  background-color: #93beff;
+  color: #ffffff;
+}
+
+/* ========================================
+ * Disabled State
+ * ======================================== */
+
+.selectbox.disabled .selectContainer {
+  background-color: #f2f2f2;
+  border-color: #e4e4e4;
+  cursor: not-allowed;
+}
+
+.selectbox.disabled .text {
+  color: #ababab;
+}
+
+.selectbox.disabled .icon {
+  opacity: 0.5;
+}
+
+/* ========================================
+ * Dark Theme
+ * ======================================== */
+
+.selectbox.dark .selectContainer {
+  background-color: #1c1c1c;
+  border-color: #333333;
+}
+
+.selectbox.dark .text {
+  color: #ffffff;
+}
+
+.selectbox.dark .selectContainer:focus {
+  border-color: #6da5fa;
+  box-shadow: 0 0 0 2px rgba(109, 165, 250, 0.2);
+}
+
+.selectbox.dark .selectContainer:hover:not(.disabled) {
+  border-color: #5f5f5f;
+}
+
+.selectbox.dark .dropdown {
+  background-color: #1c1c1c;
+  border-color: #333333;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.selectbox.dark .option {
+  color: #ffffff;
+}
+
+.selectbox.dark .option:hover:not(.optionDisabled) {
+  background-color: #333333;
+}
+
+.selectbox.dark .option.optionDisabled {
+  color: #777777;
+}
+
+/* Dark Theme - Primary Variant */
+.selectbox.dark.primary .option.selected {
+  background-color: #6da5fa;
+  color: #000000;
+}
+
+.selectbox.dark.primary .option.selected:hover {
+  background-color: #93beff;
+}
+
+/* Dark Theme - Secondary Variant */
+.selectbox.dark.secondary .selectContainer {
+  background-color: #333333;
+  border-color: #5f5f5f;
+}
+
+.selectbox.dark.secondary .dropdown {
+  background-color: #333333;
+  border-color: #5f5f5f;
+}
+
+.selectbox.dark.secondary .option.selected {
+  background-color: #93beff;
+  color: #000000;
+}
+
+/* Dark Theme - Tertiary Variant */
+.selectbox.dark.tertiary .selectContainer {
+  background-color: #000000;
+  border-color: #777777;
+}
+
+.selectbox.dark.tertiary .dropdown {
+  background-color: #000000;
+  border-color: #777777;
+}
+
+.selectbox.dark.tertiary .option.selected {
+  background-color: #bddbff;
+  color: #000000;
+}
+
+/* Dark Theme - Disabled State */
+.selectbox.dark.disabled .selectContainer {
+  background-color: #333333;
+  border-color: #5f5f5f;
+}
+
+.selectbox.dark.disabled .text {
+  color: #777777;
+}
+
+/* ========================================
+ * Scrollbar Styling for Dropdown
+ * ======================================== */
+
+.dropdown::-webkit-scrollbar {
+  width: 4px;
+}
+
+.dropdown::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dropdown::-webkit-scrollbar-thumb {
+  background-color: #d4d3d3;
+  border-radius: 2px;
+}
+
+.dropdown::-webkit-scrollbar-thumb:hover {
+  background-color: #ababab;
+}
+
+.selectbox.dark .dropdown::-webkit-scrollbar-thumb {
+  background-color: #5f5f5f;
+}
+
+.selectbox.dark .dropdown::-webkit-scrollbar-thumb:hover {
+  background-color: #777777;
+}

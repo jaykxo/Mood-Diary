@@ -1,0 +1,258 @@
+/* ========================================
+   SearchBar Component Styles
+   ======================================== */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+/* ========================================
+   Input Wrapper
+   ======================================== */
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* ========================================
+   SearchBar Base Styles
+   ======================================== */
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: 1px solid var(--color-gray-30);
+  border-radius: 100px;
+  background-color: var(--color-gray-white);
+  font-family: var(--font-family-default);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  padding-left: 16px;
+}
+
+.searchBar::placeholder {
+  color: var(--color-gray-40);
+  font-weight: var(--font-weight-medium);
+}
+
+.searchBar:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(73, 124, 255, 0.1);
+}
+
+.searchBar:disabled {
+  background-color: var(--color-gray-5);
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+}
+
+.searchBar:disabled::placeholder {
+  color: var(--color-text-disabled);
+}
+
+/* ========================================
+   Size Variants
+   ======================================== */
+
+.small {
+  height: 32px;
+  padding-right: 12px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.small .searchBar {
+  padding-left: 12px;
+}
+
+.medium {
+  height: 48px;
+  padding-right: 16px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.large {
+  height: 56px;
+  padding-right: 20px;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.large .searchBar {
+  padding-left: 20px;
+}
+
+/* ========================================
+   Primary Variant (Default)
+   ======================================== */
+
+.primary {
+  border-color: var(--color-gray-30);
+  background-color: var(--color-gray-white);
+}
+
+.primary:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(73, 124, 255, 0.1);
+}
+
+.primary:hover:not(:disabled):not(:focus) {
+  border-color: var(--color-gray-40);
+}
+
+/* ========================================
+   Secondary Variant
+   ======================================== */
+
+.secondary {
+  border-color: var(--color-primary);
+  background-color: var(--color-gray-white);
+}
+
+.secondary:focus {
+  border-color: var(--color-primary-hover);
+  box-shadow: 0 0 0 3px rgba(73, 124, 255, 0.15);
+}
+
+.secondary:hover:not(:disabled):not(:focus) {
+  border-color: var(--color-primary-hover);
+}
+
+/* ========================================
+   Tertiary Variant
+   ======================================== */
+
+.tertiary {
+  border-color: var(--color-gray-10);
+  background-color: var(--color-surface);
+}
+
+.tertiary:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(73, 124, 255, 0.1);
+  background-color: var(--color-gray-white);
+}
+
+.tertiary:hover:not(:disabled):not(:focus) {
+  border-color: var(--color-gray-20);
+  background-color: var(--color-gray-white);
+}
+
+/* ========================================
+   Search Icon Styles
+   ======================================== */
+
+.searchIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 8px;
+  color: var(--color-text-secondary);
+  transition: color 0.2s ease-in-out;
+  flex-shrink: 0;
+}
+
+.searchIcon:hover {
+  color: var(--color-text-primary);
+}
+
+.searchIcon:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.small .searchIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.medium .searchIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.large .searchIcon {
+  width: 24px;
+  height: 24px;
+}
+
+/* ========================================
+   Dark Theme Adjustments
+   ======================================== */
+
+.dark .searchBar {
+  background-color: var(--color-gray-90);
+  border-color: var(--color-gray-70);
+  color: var(--color-text-primary);
+}
+
+.dark .searchBar::placeholder {
+  color: var(--color-gray-50);
+}
+
+.dark .searchBar:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(109, 165, 250, 0.15);
+}
+
+.dark .searchBar:disabled {
+  background-color: var(--color-gray-80);
+  color: var(--color-text-disabled);
+}
+
+.dark .primary:hover:not(:disabled):not(:focus) {
+  border-color: var(--color-gray-60);
+}
+
+.dark .secondary {
+  border-color: var(--color-primary);
+}
+
+.dark .secondary:focus {
+  border-color: var(--color-primary-hover);
+  box-shadow: 0 0 0 3px rgba(109, 165, 250, 0.2);
+}
+
+.dark .secondary:hover:not(:disabled):not(:focus) {
+  border-color: var(--color-primary-hover);
+}
+
+.dark .tertiary {
+  border-color: var(--color-gray-80);
+  background-color: var(--color-gray-90);
+}
+
+.dark .tertiary:focus {
+  border-color: var(--color-primary);
+  background-color: var(--color-gray-80);
+}
+
+.dark .tertiary:hover:not(:disabled):not(:focus) {
+  border-color: var(--color-gray-70);
+  background-color: var(--color-gray-80);
+}
+
+.dark .searchIcon {
+  color: var(--color-text-secondary);
+}
+
+.dark .searchIcon:hover {
+  color: var(--color-text-primary);
+}

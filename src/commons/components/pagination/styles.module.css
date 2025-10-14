@@ -1,0 +1,297 @@
+/* ========================================
+ * Pagination Component Styles
+ * ======================================== */
+
+/* 기본 컨테이너 */
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+}
+
+/* 화살표 버튼 공통 스타일 */
+.arrowButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.arrowDisabled {
+  cursor: not-allowed;
+}
+
+.arrowIcon {
+  width: 24px;
+  height: 24px;
+}
+
+/* 페이지 번호 컨테이너 */
+.pageNumbers {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* 페이지 버튼 공통 스타일 */
+.pageButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-family-default);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: -0.16px;
+  cursor: pointer;
+}
+
+.pageButton:disabled {
+  cursor: not-allowed;
+}
+
+/* ========================================
+ * Variant Styles - Primary
+ * ======================================== */
+
+.primary .pageButton.active {
+  background-color: var(--color-gray-5);
+  color: var(--color-gray-black);
+  font-weight: 500;
+}
+
+.primary .pageButton.inactive {
+  background-color: var(--color-gray-white);
+  color: var(--color-gray-60);
+  font-weight: 400;
+}
+
+
+/* ========================================
+ * Variant Styles - Secondary
+ * ======================================== */
+
+.secondary .pageButton.active {
+  background-color: var(--color-blue-50);
+  color: var(--color-gray-white);
+  font-weight: 500;
+}
+
+.secondary .pageButton.inactive {
+  background-color: var(--color-gray-white);
+  color: var(--color-gray-60);
+  font-weight: 400;
+  border: 1px solid var(--color-gray-10);
+}
+
+
+/* ========================================
+ * Variant Styles - Tertiary
+ * ======================================== */
+
+.tertiary .pageButton.active {
+  background-color: transparent;
+  color: var(--color-blue-50);
+  font-weight: 500;
+  border: 2px solid var(--color-blue-50);
+}
+
+.tertiary .pageButton.inactive {
+  background-color: transparent;
+  color: var(--color-gray-60);
+  font-weight: 400;
+  border: 1px solid var(--color-gray-10);
+}
+
+
+/* ========================================
+ * Size Styles - Small
+ * ======================================== */
+
+.small .pageButton {
+  width: 24px;
+  height: 24px;
+  font-size: 12px;
+  line-height: 16px;
+  border-radius: 6px;
+}
+
+.small .pageNumbers {
+  gap: 8px;
+}
+
+.small .arrowButton {
+  width: 20px;
+  height: 20px;
+}
+
+.small .arrowIcon {
+  width: 20px;
+  height: 20px;
+}
+
+/* ========================================
+ * Size Styles - Medium (기본값)
+ * ======================================== */
+
+.medium .pageButton {
+  width: 32px;
+  height: 32px;
+  font-size: 16px;
+  line-height: 24px;
+  border-radius: 8px;
+}
+
+.medium .pageNumbers {
+  gap: 16px;
+}
+
+.medium .arrowButton {
+  width: 24px;
+  height: 24px;
+}
+
+.medium .arrowIcon {
+  width: 24px;
+  height: 24px;
+}
+
+/* ========================================
+ * Size Styles - Large
+ * ======================================== */
+
+.large .pageButton {
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  line-height: 28px;
+  border-radius: 10px;
+}
+
+.large .pageNumbers {
+  gap: 20px;
+}
+
+.large .arrowButton {
+  width: 28px;
+  height: 28px;
+}
+
+.large .arrowIcon {
+  width: 28px;
+  height: 28px;
+}
+
+/* ========================================
+ * Theme Styles - Light (기본값)
+ * ======================================== */
+
+.light .arrowButton {
+  color: var(--color-gray-black);
+}
+
+.light .arrowDisabled {
+  color: var(--color-gray-20);
+}
+
+/* ========================================
+ * Theme Styles - Dark
+ * ======================================== */
+
+.dark {
+  color: var(--color-gray-white);
+}
+
+.dark .pageButton.active {
+  background-color: var(--color-gray-80);
+  color: var(--color-gray-white);
+}
+
+.dark .pageButton.inactive {
+  background-color: var(--color-gray-90);
+  color: var(--color-gray-40);
+}
+
+
+.dark .arrowButton {
+  color: var(--color-gray-white);
+}
+
+.dark .arrowDisabled {
+  color: var(--color-gray-70);
+}
+
+/* Dark theme variant overrides */
+.dark.secondary .pageButton.active {
+  background-color: var(--color-blue-40);
+  color: var(--color-gray-black);
+}
+
+.dark.secondary .pageButton.inactive {
+  background-color: var(--color-gray-90);
+  color: var(--color-gray-40);
+  border-color: var(--color-gray-80);
+}
+
+
+.dark.tertiary .pageButton.active {
+  background-color: transparent;
+  color: var(--color-blue-40);
+  border-color: var(--color-blue-40);
+}
+
+.dark.tertiary .pageButton.inactive {
+  background-color: transparent;
+  color: var(--color-gray-40);
+  border-color: var(--color-gray-80);
+}
+
+
+/* ========================================
+ * Disabled State
+ * ======================================== */
+
+.disabled {
+  pointer-events: none;
+}
+
+.disabled .pageButton,
+.disabled .arrowButton {
+  cursor: not-allowed;
+}
+
+/* ========================================
+ * Responsive Design
+ * ======================================== */
+
+@media (max-width: 768px) {
+  .pagination {
+    gap: 4px;
+  }
+  
+  .pageNumbers {
+    gap: 8px;
+  }
+  
+  .large .pageNumbers {
+    gap: 12px;
+  }
+  
+  .medium .pageNumbers {
+    gap: 8px;
+  }
+  
+  .small .pageNumbers {
+    gap: 4px;
+  }
+}
