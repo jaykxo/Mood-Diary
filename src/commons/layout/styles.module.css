@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 1168px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.header {
+  height: 60px;
+  background-color: var(--color-background);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.gap {
+  height: 24px;
+}
+
+.banner {
+  height: 240px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.navigation {
+  height: 48px;
+  background-color: var(--color-background);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.main {
+  flex: 1;
+  background-color: var(--color-background);
+  padding: 0;
+}
+
+.footer {
+  height: 160px;
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
