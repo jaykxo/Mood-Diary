@@ -20,15 +20,18 @@
   border: none;
   background: transparent;
   cursor: pointer;
+  padding: 0;
 }
 
 .arrowDisabled {
   cursor: not-allowed;
+  opacity: 0.3;
 }
 
 .arrowIcon {
   width: 24px;
   height: 24px;
+  display: block;
 }
 
 /* 페이지 번호 컨테이너 */
@@ -47,13 +50,14 @@
   height: 32px;
   border: none;
   border-radius: 8px;
-  font-family: var(--font-family-default);
+  font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
   text-align: center;
   letter-spacing: -0.16px;
   cursor: pointer;
+  padding: 0;
 }
 
 .pageButton:disabled {
@@ -65,14 +69,14 @@
  * ======================================== */
 
 .primary .pageButton.active {
-  background-color: var(--color-gray-5);
-  color: var(--color-gray-black);
+  background-color: #f2f2f2;
+  color: #000000;
   font-weight: 500;
 }
 
 .primary .pageButton.inactive {
-  background-color: var(--color-gray-white);
-  color: var(--color-gray-60);
+  background-color: #ffffff;
+  color: #777777;
   font-weight: 400;
 }
 
