@@ -29,8 +29,8 @@
 }
 
 .arrowIcon {
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
   display: block;
 }
 
@@ -140,8 +140,8 @@
 }
 
 .small .arrowIcon {
-  width: 20px;
-  height: 20px;
+  width: 14px;
+  height: 14px;
 }
 
 /* ========================================
@@ -166,8 +166,8 @@
 }
 
 .medium .arrowIcon {
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
 }
 
 /* ========================================
@@ -192,8 +192,8 @@
 }
 
 .large .arrowIcon {
-  width: 28px;
-  height: 28px;
+  width: 22px;
+  height: 22px;
 }
 
 /* ========================================

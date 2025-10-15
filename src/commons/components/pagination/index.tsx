@@ -113,8 +113,8 @@ export const Pagination: React.FC<PaginationProps> = ({
         <Image
           src={canGoPrevious ? "/icons/leftenable_outline_light_m.svg" : "/icons/leftdisabled_outline_light_m.svg"}
           alt="이전 페이지"
-          width={24}
-          height={24}
+          width={18}
+          height={18}
           className={styles.arrowIcon}
         />
       </button>
@@ -147,8 +147,8 @@ export const Pagination: React.FC<PaginationProps> = ({
         <Image
           src={canGoNext ? "/icons/rightenable_outline_light_m.svg" : "/icons/rightdisabled_outline_light_m.svg"}
           alt="다음 페이지"
-          width={24}
-          height={24}
+          width={18}
+          height={18}
           className={styles.arrowIcon}
         />
       </button>
