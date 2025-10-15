@@ -1,15 +1,57 @@
 import React from 'react';
 import styles from './styles.module.css';
+import { Selectbox } from '@/commons/components/selectbox';
+import { SearchBar } from '@/commons/components/searchbar';
+import { Button } from '@/commons/components/button';
 
 const DiariesComponent: React.FC = () => {
+  // 필터 옵션 데이터
+  const filterOptions = [
+    { value: 'all', label: '전체' },
+    { value: 'happy', label: '행복해요' },
+    { value: 'sad', label: '슬퍼요' },
+    { value: 'angry', label: '화나요' },
+    { value: 'surprised', label: '놀랐어요' },
+    { value: 'etc', label: '기타' },
+  ];
+
   return (
     <div className={styles.container}>
       {/* Search Section */}
       <div className={styles.search}>
         <div className={styles.searchContent}>
-          {/* Search input placeholder */}
+          {/* 필터 선택박스 */}
+          <div className={styles.searchFilter}>
+            <Selectbox
+              variant="primary"
+              theme="light"
+              size="medium"
+              options={filterOptions}
+              defaultValue="all"
+              placeholder="전체"
+            />
+          </div>
+          
+          {/* 검색바 */}
           <div className={styles.searchInput}>
-            검색 영역
+            <SearchBar
+              variant="primary"
+              theme="light"
+              size="medium"
+              placeholder="검색어를 입력해 주세요."
+            />
+          </div>
+          
+          {/* 일기쓰기 버튼 */}
+          <div className={styles.searchButton}>
+            <Button
+              variant="primary"
+              theme="light"
+              size="medium"
+              className={styles.searchButton}
+            >
+              일기쓰기
+            </Button>
           </div>
         </div>
       </div>
