@@ -92,7 +92,7 @@ const SearchBar = forwardRef<HTMLInputElement, SearchBarProps>(
 
     return (
       <div className={containerClasses}>
-        <div className={styles.inputWrapper}>
+        <div className={searchBarClasses}>
           {showSearchIcon && (
             <button
               type="button"
@@ -111,7 +111,7 @@ const SearchBar = forwardRef<HTMLInputElement, SearchBarProps>(
           <input
             ref={ref}
             type="text"
-            className={searchBarClasses}
+            className={styles.input}
             placeholder={placeholder}
             onKeyDown={handleKeyDown}
             {...props}
