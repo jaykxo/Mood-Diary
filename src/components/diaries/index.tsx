@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import styles from './styles.module.css';
 import { Selectbox } from '@/commons/components/selectbox';
 import { SearchBar } from '@/commons/components/searchbar';
@@ -20,26 +21,28 @@ const DiariesComponent: React.FC = () => {
       {/* Search Section */}
       <div className={styles.search}>
         <div className={styles.searchContent}>
-          {/* 필터 선택박스 */}
-          <div className={styles.searchFilter}>
-            <Selectbox
-              variant="primary"
-              theme="light"
-              size="medium"
-              options={filterOptions}
-              defaultValue="all"
-              placeholder="전체"
-            />
-          </div>
-          
-          {/* 검색바 */}
-          <div className={styles.searchInput}>
-            <SearchBar
-              variant="primary"
-              theme="light"
-              size="medium"
-              placeholder="검색어를 입력해 주세요."
-            />
+          <div className={styles.searchLeft}>
+            {/* 필터 선택박스 */}
+            <div className={styles.searchFilter}>
+              <Selectbox
+                variant="primary"
+                theme="light"
+                size="medium"
+                options={filterOptions}
+                defaultValue="all"
+                placeholder="전체"
+              />
+            </div>
+            
+            {/* 검색바 */}
+            <div className={styles.searchInput}>
+              <SearchBar
+                variant="primary"
+                theme="light"
+                size="medium"
+                placeholder="검색어를 입력해 주세요."
+              />
+            </div>
           </div>
           
           {/* 일기쓰기 버튼 */}
@@ -47,8 +50,15 @@ const DiariesComponent: React.FC = () => {
             <Button
               variant="primary"
               theme="light"
-              size="medium"
-              className={styles.searchButton}
+              size="large"
+              icon={
+                <Image
+                  src="/icons/plus_outline_light_m.svg"
+                  alt="plus"
+                  width={24}
+                  height={24}
+                />
+              }
             >
               일기쓰기
             </Button>

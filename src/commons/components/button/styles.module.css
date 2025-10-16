@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 4px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -17,6 +17,7 @@
   outline: none;
   position: relative;
   overflow: hidden;
+  white-space: nowrap;
 }
 
 .button:disabled {
@@ -51,10 +52,12 @@
 
 .large {
   height: 48px;
-  padding: 0 20px;
+  padding: 0 10px;
   font-size: 18px;
   line-height: 24px;
   min-width: 96px;
+  font-weight: 600;
+  letter-spacing: -0.18px;
 }
 
 /* ========================================

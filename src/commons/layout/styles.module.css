@@ -34,7 +34,7 @@
 }
 
 .gap {
-  height: 32px;
+  height: 24px;
 }
 
 .banner {
@@ -67,6 +67,8 @@
 .navContent {
   display: flex;
   height: 100%;
+  gap: 16px;
+
 }
 
 .tab {
