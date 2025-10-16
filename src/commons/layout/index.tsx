@@ -11,7 +11,7 @@ export default function Layout({ children }: LayoutProps) {
       <header className={styles.header}>
         <div className={styles.headerContent}>
           <div className={styles.logo}>
-            <h1 className={styles.logoText}>민지의 다이어리</h1>
+            <h1 className={styles.logoText}>명수의 다이어리</h1>
           </div>
         </div>
       </header>
@@ -37,16 +37,18 @@ export default function Layout({ children }: LayoutProps) {
         </div>
       </nav>
       
+      <div className={styles.gap}></div>
+      
       <main className={styles.main}>
         {children}
       </main>
       
       <footer className={styles.footer}>
         <div className={styles.footerContent}>
-          <h2 className={styles.footerTitle}>민지의 다이어리</h2>
+          <h2 className={styles.footerTitle}>명수의 다이어리</h2>
           <div className={styles.footerInfo}>
-            <p className={styles.footerRepresentative}>대표 : 민지</p>
-            <p className={styles.footerCopyright}>Copyright © 2024. 민지 Co., Ltd.</p>
+            <p className={styles.footerRepresentative}>대표 : 명수</p>
+            <p className={styles.footerCopyright}>Copyright © 2025. 명수 Co., Ltd.</p>
           </div>
         </div>
       </footer>
