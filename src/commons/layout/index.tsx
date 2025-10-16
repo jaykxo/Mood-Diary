@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import styles from './styles.module.css';
 
 interface LayoutProps {
@@ -20,7 +21,7 @@ export default function Layout({ children }: LayoutProps) {
       
       <div className={styles.banner}>
         <div className={styles.bannerContent}>
-          <img src="/images/banner.png" alt="Banner" className={styles.bannerImage} />
+          <Image src="/images/banner.png" alt="Banner" className={styles.bannerImage} width={800} height={200} />
         </div>
       </div>
       
