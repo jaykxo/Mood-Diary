@@ -201,8 +201,8 @@ export const Selectbox = forwardRef<HTMLDivElement, SelectboxProps>(
             <Image
               src="/icons/arrow_drop_down.svg"
               alt="드롭다운"
-              width={24}
-              height={24}
+              width={9}
+              height={5}
               className={styles.icon}
             />
           </div>
@@ -222,7 +222,17 @@ export const Selectbox = forwardRef<HTMLDivElement, SelectboxProps>(
                 aria-selected={option.value === selectedValue}
                 aria-disabled={option.disabled}
               >
-                {option.label}
+                <span className={styles.optionText}>{option.label}</span>
+                {option.value === selectedValue && (
+                  <div className={styles.checkIcon}>
+                    <Image
+                      src="/icons/check_outline_light_xs.svg"
+                      alt="선택됨"
+                      width={16}
+                      height={16}
+                    />
+                  </div>
+                )}
               </div>
             ))}
           </div>

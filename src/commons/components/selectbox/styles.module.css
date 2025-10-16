@@ -10,6 +10,7 @@
 .selectbox {
   display: inline-flex;
   flex-direction: column;
+  width: 120px;
 }
 
 .selectbox.fullWidth {
@@ -94,9 +95,14 @@
 .option {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  height: 48px;
+  padding: 0 12px;
   font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  font-weight: 500;
-  color: #1c1c1c;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #5f5f5f;
   cursor: pointer;
 }
 
@@ -105,17 +111,33 @@
 }
 
 .option.selected {
-  background-color: #497cff;
-  color: #ffffff;
+  background-color: rgba(58, 181, 15, 0.05);
+  color: #299c00;
+  font-weight: 700;
 }
 
 .option.selected:hover {
-  background-color: #3a5cf3;
+  background-color: rgba(58, 181, 15, 0.1);
 }
 
 .option.optionDisabled {
   color: #ababab;
   cursor: not-allowed;
+}
+
+.optionText {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.checkIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: 8px;
 }
 
 /* ========================================
@@ -140,7 +162,8 @@
 }
 
 .selectbox.small .option {
-  padding: 6px 8px;
+  height: 32px;
+  padding: 0 8px;
   font-size: 12px;
   line-height: 16px;
 }
@@ -163,7 +186,8 @@
 }
 
 .selectbox.medium .option {
-  padding: 12px;
+  height: 48px;
+  padding: 0 12px;
   font-size: 16px;
   line-height: 24px;
 }
@@ -186,7 +210,8 @@
 }
 
 .selectbox.large .option {
-  padding: 16px;
+  height: 56px;
+  padding: 0 16px;
   font-size: 18px;
   line-height: 24px;
 }
@@ -216,8 +241,9 @@
 }
 
 .selectbox.primary .option.selected {
-  background-color: #497cff;
-  color: #ffffff;
+  background-color: rgba(58, 181, 15, 0.05);
+  color: #299c00;
+  font-weight: 700;
 }
 
 /* Secondary Variant */
@@ -241,8 +267,9 @@
 }
 
 .selectbox.secondary .option.selected {
-  background-color: #6da5fa;
-  color: #ffffff;
+  background-color: rgba(58, 181, 15, 0.05);
+  color: #299c00;
+  font-weight: 700;
 }
 
 /* Tertiary Variant */
@@ -266,8 +293,9 @@
 }
 
 .selectbox.tertiary .option.selected {
-  background-color: #93beff;
-  color: #ffffff;
+  background-color: rgba(58, 181, 15, 0.05);
+  color: #299c00;
+  font-weight: 700;
 }
 
 /* ========================================
@@ -330,12 +358,13 @@
 
 /* Dark Theme - Primary Variant */
 .selectbox.dark.primary .option.selected {
-  background-color: #6da5fa;
-  color: #000000;
+  background-color: rgba(58, 181, 15, 0.1);
+  color: #4ade80;
+  font-weight: 700;
 }
 
 .selectbox.dark.primary .option.selected:hover {
-  background-color: #93beff;
+  background-color: rgba(58, 181, 15, 0.15);
 }
 
 /* Dark Theme - Secondary Variant */
@@ -350,8 +379,9 @@
 }
 
 .selectbox.dark.secondary .option.selected {
-  background-color: #93beff;
-  color: #000000;
+  background-color: rgba(58, 181, 15, 0.1);
+  color: #4ade80;
+  font-weight: 700;
 }
 
 /* Dark Theme - Tertiary Variant */
@@ -366,8 +396,9 @@
 }
 
 .selectbox.dark.tertiary .option.selected {
-  background-color: #bddbff;
-  color: #000000;
+  background-color: rgba(58, 181, 15, 0.1);
+  color: #4ade80;
+  font-weight: 700;
 }
 
 /* Dark Theme - Disabled State */
