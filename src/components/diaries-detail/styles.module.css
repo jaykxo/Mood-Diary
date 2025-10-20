@@ -212,11 +212,37 @@
 /* retrospect-input 영역: 1168 * 85 = 85px */
 .retrospectInput {
   height: 85px;
-  border: 2px solid var(--color-primary);
-  background: var(--color-red-5);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.retrospectInputLabel {
+  font-family: var(--font-family-default);
+  font-size: var(--typo-title01-size);
+  font-weight: var(--typo-title01-weight);
+  line-height: var(--typo-title01-line);
+  letter-spacing: -0.18px;
+  color: var(--color-text-primary);
+  margin: 0 0 13px 0;
+}
+
+.retrospectInputContainer {
+  height: 48px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 16px;
+  padding: 0;
+}
+
+.retrospectInputField {
+  flex: 1;
+}
+
+.retrospectInputButton {
+  width: 51px;
+  min-width: 51px;
+  height: 48px;
 }
 
 /* 다섯 번째 gap: 1168 * 16 = 16px */
@@ -226,12 +252,52 @@
 
 /* retrospect-list 영역: 1168 * 72 = 72px */
 .retrospectList {
-  height: 72px;
-  border: 2px solid var(--color-primary);
-  background: var(--color-cool-gray-5);
+  min-height: 72px;
+  border-radius: 16px;
+  background: var(--color-gray-white);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.retrospectItem {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.retrospectItemContent {
+  height: 24px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.retrospectItemText {
+  font-family: var(--font-family-default);
+  font-size: var(--typo-body01-size);
+  font-weight: var(--typo-body01-weight);
+  line-height: var(--typo-body01-line);
+  letter-spacing: -0.16px;
+  color: var(--color-text-primary);
+  flex: 1;
+}
+
+.retrospectItemDate {
+  font-family: var(--font-family-default);
+  font-size: var(--typo-body01-size);
+  font-weight: var(--typo-body01-regular-weight);
+  line-height: var(--typo-body01-line);
+  letter-spacing: -0.16px;
+  color: var(--color-text-secondary);
+  margin-left: 16px;
+}
+
+.retrospectDivider {
+  height: 0;
+  border-top: 1px solid var(--color-gray-10);
+  margin: 12px 0;
 }
 
 .areaLabel {
