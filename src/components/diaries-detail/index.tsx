@@ -12,7 +12,7 @@ const DiariesDetail: React.FC<DiariesDetailProps> = () => {
 
       {/* detail-title 영역: 1168 * 84 = 84px */}
       <div className={styles.detailTitle}>
-        <h1>일기 제목</h1>
+        <span className={styles.areaLabel}>detail-title (84px)</span>
       </div>
 
       {/* 두 번째 gap: 1168 * 24 = 24px */}
@@ -20,7 +20,7 @@ const DiariesDetail: React.FC<DiariesDetailProps> = () => {
 
       {/* detail-content 영역: 1168 * 169 = 169px */}
       <div className={styles.detailContent}>
-        <p>일기 내용이 여기에 표시됩니다.</p>
+        <span className={styles.areaLabel}>detail-content (169px)</span>
       </div>
 
       {/* 세 번째 gap: 1168 * 24 = 24px */}
@@ -28,13 +28,7 @@ const DiariesDetail: React.FC<DiariesDetailProps> = () => {
 
       {/* detail-footer 영역: 1168 * 56 = 56px */}
       <div className={styles.detailFooter}>
-        <div className={styles.footerContent}>
-          <span>작성일: 2024-01-01</span>
-          <div className={styles.footerActions}>
-            <button>수정</button>
-            <button>삭제</button>
-          </div>
-        </div>
+        <span className={styles.areaLabel}>detail-footer (56px)</span>
       </div>
 
       {/* 네 번째 gap: 1168 * 24 = 24px */}
@@ -42,11 +36,7 @@ const DiariesDetail: React.FC<DiariesDetailProps> = () => {
 
       {/* retrospect-input 영역: 1168 * 85 = 85px */}
       <div className={styles.retrospectInput}>
-        <textarea 
-          placeholder="회고 내용을 입력하세요..."
-          className={styles.textarea}
-        />
-        <button className={styles.submitButton}>등록</button>
+        <span className={styles.areaLabel}>retrospect-input (85px)</span>
       </div>
 
       {/* 다섯 번째 gap: 1168 * 16 = 16px */}
@@ -54,14 +44,7 @@ const DiariesDetail: React.FC<DiariesDetailProps> = () => {
 
       {/* retrospect-list 영역: 1168 * 72 = 72px */}
       <div className={styles.retrospectList}>
-        <div className={styles.retrospectItem}>
-          <span>회고 내용 1</span>
-          <button>삭제</button>
-        </div>
-        <div className={styles.retrospectItem}>
-          <span>회고 내용 2</span>
-          <button>삭제</button>
-        </div>
+        <span className={styles.areaLabel}>retrospect-list (72px)</span>
       </div>
     </div>
   );

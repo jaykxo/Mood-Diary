@@ -15,219 +15,120 @@
 /* detail-title 영역: 1168 * 84 = 84px */
 .detailTitle {
   height: 84px;
+  border: 2px solid var(--color-primary);
+  background: var(--color-blue-5);
   display: flex;
   align-items: center;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.detailTitle h1 {
-  font-family: var(--font-family-default);
-  font-size: var(--typo-headline01-size);
-  line-height: var(--typo-headline01-line);
-  font-weight: var(--typo-headline01-weight);
-  margin: 0;
-  color: var(--color-text-primary);
+  justify-content: center;
 }
 
 /* 두 번째 gap: 1168 * 24 = 24px */
 .gap2 {
   height: 24px;
+  background: var(--color-gray-5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gap2::before {
+  content: "gap (24px)";
+  font-size: 12px;
+  color: var(--color-text-tertiary);
 }
 
 /* detail-content 영역: 1168 * 169 = 169px */
 .detailContent {
   height: 169px;
-  padding: 16px 0;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.detailContent p {
-  margin: 0;
-  line-height: 1.6;
-  color: var(--color-text-secondary);
-  font-family: var(--font-family-default);
-  font-size: var(--typo-body01-regular-size);
-  font-weight: var(--typo-body01-regular-weight);
+  border: 2px solid var(--color-primary);
+  background: var(--color-green-5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* 세 번째 gap: 1168 * 24 = 24px */
 .gap3 {
   height: 24px;
+  background: var(--color-gray-5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gap3::before {
+  content: "gap (24px)";
+  font-size: 12px;
+  color: var(--color-text-tertiary);
 }
 
 /* detail-footer 영역: 1168 * 56 = 56px */
 .detailFooter {
   height: 56px;
+  border: 2px solid var(--color-primary);
+  background: var(--color-yellow-5);
   display: flex;
   align-items: center;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.footerContent {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.footerContent span {
-  color: var(--color-text-secondary);
-  font-family: var(--font-family-default);
-  font-size: var(--typo-body02-regular-size);
-  font-weight: var(--typo-body02-regular-weight);
-}
-
-.footerActions {
-  display: flex;
-  gap: 8px;
-}
-
-.footerActions button {
-  padding: 6px 12px;
-  border: 1px solid var(--color-gray-30);
-  background: var(--color-background);
-  border-radius: 4px;
-  cursor: pointer;
-  font-family: var(--font-family-default);
-  font-size: var(--typo-caption01-size);
-  font-weight: var(--typo-caption01-weight);
-  color: var(--color-text-primary);
-}
-
-.footerActions button:hover {
-  background: var(--color-surface);
+  justify-content: center;
 }
 
 /* 네 번째 gap: 1168 * 24 = 24px */
 .gap4 {
   height: 24px;
+  background: var(--color-gray-5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gap4::before {
+  content: "gap (24px)";
+  font-size: 12px;
+  color: var(--color-text-tertiary);
 }
 
 /* retrospect-input 영역: 1168 * 85 = 85px */
 .retrospectInput {
   height: 85px;
+  border: 2px solid var(--color-primary);
+  background: var(--color-red-5);
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 16px 0;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.textarea {
-  flex: 1;
-  height: 40px;
-  padding: 8px 12px;
-  border: 1px solid var(--color-gray-30);
-  border-radius: 4px;
-  resize: none;
-  font-family: var(--font-family-default);
-  font-size: var(--typo-body02-regular-size);
-  color: var(--color-text-primary);
-  background: var(--color-background);
-}
-
-.textarea:focus {
-  outline: none;
-  border-color: var(--color-primary);
-}
-
-.submitButton {
-  height: 40px;
-  padding: 0 16px;
-  background: var(--color-primary);
-  color: var(--color-text-inverse);
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-family: var(--font-family-default);
-  font-size: var(--typo-body02-medium-size);
-  font-weight: var(--typo-body02-medium-weight);
-}
-
-.submitButton:hover {
-  background: var(--color-primary-hover);
+  justify-content: center;
 }
 
 /* 다섯 번째 gap: 1168 * 16 = 16px */
 .gap5 {
   height: 16px;
+  background: var(--color-gray-5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gap5::before {
+  content: "gap (16px)";
+  font-size: 12px;
+  color: var(--color-text-tertiary);
 }
 
 /* retrospect-list 영역: 1168 * 72 = 72px */
 .retrospectList {
   height: 72px;
+  border: 2px solid var(--color-primary);
+  background: var(--color-cool-gray-5);
   display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 16px 0;
-}
-
-.retrospectItem {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 8px 12px;
-  background: var(--color-surface);
-  border-radius: 4px;
-  border: 1px solid var(--color-cool-gray-20);
+  justify-content: center;
 }
 
-.retrospectItem span {
-  flex: 1;
+.areaLabel {
   font-family: var(--font-family-default);
-  font-size: var(--typo-body02-regular-size);
-  font-weight: var(--typo-body02-regular-weight);
+  font-size: var(--typo-body02-medium-size);
+  font-weight: var(--typo-body02-medium-weight);
   color: var(--color-text-primary);
-}
-
-.retrospectItem button {
+  background: var(--color-background);
   padding: 4px 8px;
-  background: var(--color-error);
-  color: var(--color-text-inverse);
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  font-family: var(--font-family-default);
-  font-size: var(--typo-caption02-medium-size);
-  font-weight: var(--typo-caption02-medium-weight);
-}
-
-.retrospectItem button:hover {
-  background: var(--color-red-50);
-}
-
-/* 반응형 디자인 */
-@media (max-width: 1200px) {
-  .container {
-    max-width: 100%;
-    padding: 0 12px;
-  }
-}
-
-@media (max-width: 768px) {
-  .detailTitle h1 {
-    font-size: var(--typo-headline02-size);
-    line-height: var(--typo-headline02-line);
-  }
-  
-  .footerContent {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-  }
-  
-  .retrospectInput {
-    flex-direction: column;
-    align-items: stretch;
-    height: auto;
-    padding: 12px 0;
-  }
-  
-  .textarea {
-    height: 60px;
-  }
-  
-  .retrospectList {
-    height: auto;
-  }
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
 }
