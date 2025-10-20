@@ -32,40 +32,40 @@ export const emotionMetaMap: Record<EmotionType, EmotionMeta> = {
   [EmotionType.Happy]: {
     label: '행복해요',
     icon: {
-      medium: '/icons/emotion-happy-m.svg',
-      small: '/icons/emotion-happy-s.svg',
+      medium: '/images/emotion-happy-m.png',
+      small: '/images/emotion-happy-s.png',
     },
     color: colors.red[60],
   },
   [EmotionType.Sad]: {
     label: '슬퍼요',
     icon: {
-      medium: '/icons/emotion-sad-m.svg',
-      small: '/icons/emotion-sad-s.svg',
+      medium: '/images/emotion-sad-m.png',
+      small: '/images/emotion-sad-s.png',
     },
     color: colors.blue[60],
   },
   [EmotionType.Angry]: {
     label: '화나요',
     icon: {
-      medium: '/icons/emotion-angry-m.svg',
-      small: '/icons/emotion-angry-s.svg',
+      medium: '/images/emotion-angry-m.png',
+      small: '/images/emotion-angry-s.png',
     },
     color: colors.gray[60],
   },
   [EmotionType.Surprise]: {
     label: '놀랐어요',
     icon: {
-      medium: '/icons/emotion-surprise-m.svg',
-      small: '/icons/emotion-surprise-s.svg',
+      medium: '/images/emotion-surprise-m.png',
+      small: '/images/emotion-surprise-s.png',
     },
     color: colors.yellow[60],
   },
   [EmotionType.Etc]: {
     label: '기타',
     icon: {
-      medium: '/icons/emotion-etc-m.svg',
-      small: '/icons/emotion-etc-s.svg',
+      medium: '/images/emotion-etc-m.png',
+      small: '/images/emotion-etc-s.png',
     },
     color: colors.green[60],
   },

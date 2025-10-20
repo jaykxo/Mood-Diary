@@ -10,7 +10,7 @@
 
 ==============================================
 
-조건-피그마) 활용할MCP: CursorTalkToFigmaMCP(채널명: 4dumgofa)
+조건-피그마) 활용할MCP: CursorTalkToFigmaMCP(채널명: wq6zpg6m)
 조건-피그마) 구현될 컴포넌트 노드ID(라이트모드: detail-title 영역): 3:1073
 조건-피그마) 구현될 컴포넌트 노드ID(라이트모드: detail-content 영역): 3:1083
 조건-피그마) 구현될 컴포넌트 노드ID(라이트모드: detail-footer 영역): 3:1092
@@ -31,13 +31,7 @@
 
 ==============================================
 
-기존히스토리-참고만) MCP를 연동하여 피그마의 디자인을 이미 만들어져있는 와이어프레임의 detail-title, detail-content, deatil-footer 영역에 그대로 구현할 것.
-
-==============================================
-
-핵심요구사항) styles_titleSection의 border-bottom을 2px solild black 추가할 것.
-
-핵심요구사항) styles_detailFooter는 height를 56px로 설정하고, border-bottom을 1px solid black으로 추가할 것.
+핵심요구사항) MCP를 연동하여 피그마의 디자인을 이미 만들어져있는 와이어프레임의 detail-title, detail-content, deatil-footer 영역에 그대로 구현할 것.
 
 핵심요구사항) 일기상세는 아래의 조건으로 Mock 데이터를 만들어 적용할 것.
             1. 일기카드는 감정과 관련된 내용으로 enum 타입을 활용할 것.
@@ -57,7 +51,7 @@
 
 핵심요구사항) 공통컴포넌트는 다음의 규칙을 지켜 step-by-step 으로 구현하고, 적용 결과를 체크리스트로 반환할 것.
             1. 공통컴포넌트 원본을 수정하지 말고, 아래의 props만 활용할 것.
-                - variant: primary, secondary를 확인하여 구현할 것.
+                - variant: primary, secondary, tertiary를 확인하여 구현할 것.
                 - theme: light 모드만 사용할 것.
                 - size: 피그마와 일치할 것.
                 - className 전달: width만 허용할 것.
