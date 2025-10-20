@@ -1,9 +1,12 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import Image from 'next/image';
 import styles from './styles.module.css';
 import { Selectbox } from '@/commons/components/selectbox';
 import { SearchBar } from '@/commons/components/searchbar';
 import { Button } from '@/commons/components/button';
+import { Pagination } from '@/commons/components/pagination';
 import { EmotionType, emotionMetaMap } from '@/commons/constants/enum';
 
 // 일기 데이터 타입 정의
@@ -16,6 +19,10 @@ interface DiaryData {
 }
 
 const DiariesComponent: React.FC = () => {
+  // 페이지네이션 상태
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = 5; // 피그마 디자인에 맞춰 5페이지로 설정
+
   // 필터 옵션 데이터
   const filterOptions = [
     { value: 'all', label: '전체' },
@@ -230,10 +237,16 @@ const DiariesComponent: React.FC = () => {
       {/* Pagination Section */}
       <div className={styles.pagination}>
         <div className={styles.paginationContent}>
-          {/* Pagination controls placeholder */}
-          <div className={styles.paginationControls}>
-            페이지네이션 영역
-          </div>
+          <Pagination
+            variant="primary"
+            theme="light"
+            size="medium"
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={setCurrentPage}
+            maxVisiblePages={5}
+            className={styles.paginationComponent}
+          />
         </div>
       </div>
     </div>
