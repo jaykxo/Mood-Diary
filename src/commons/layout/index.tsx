@@ -17,7 +17,7 @@ export default function Layout({ children }: LayoutProps) {
         </div>
       </header>
       
-      <div className={styles.gap}></div>
+      {/* <div className={styles.gap}></div> */}
       
       <div className={styles.banner}>
         <div className={styles.bannerContent}>
@@ -25,7 +25,7 @@ export default function Layout({ children }: LayoutProps) {
         </div>
       </div>
       
-      <div className={styles.gap}></div>
+      {/* <div className={styles.gap}></div> */}
       
       <nav className={styles.navigation}>
         <div className={styles.navContent}>
@@ -38,7 +38,7 @@ export default function Layout({ children }: LayoutProps) {
         </div>
       </nav>
       
-      <div className={styles.gap}></div>
+      {/* <div className={styles.gap}></div> */}
       
       <main className={styles.main}>
         {children}
