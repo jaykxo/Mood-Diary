@@ -1,0 +1,69 @@
+/* 부모 컨테이너 */
+.wrapper {
+  width: 640px;
+  height: 560px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #333;
+  border-radius: 8px;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f8f9fa;
+}
+
+/* Header 영역 */
+.header {
+  width: 100%;
+  height: 24px;
+  background-color: #e3f2fd;
+  border: 1px solid #1976d2;
+  border-radius: 4px;
+}
+
+/* Gap */
+.gap {
+  width: 100%;
+  height: 40px;
+}
+
+/* Gap 24px */
+.gap24 {
+  width: 100%;
+  height: 24px;
+}
+
+/* Emotion Box 영역 */
+.emotionBox {
+  width: 100%;
+  height: 64px;
+  background-color: #fff3e0;
+  border: 1px solid #f57c00;
+  border-radius: 8px;
+}
+
+/* Input Title 영역 */
+.inputTitle {
+  width: 100%;
+  height: 76px;
+  background-color: #e8f5e8;
+  border: 1px solid #4caf50;
+  border-radius: 6px;
+}
+
+/* Input Content 영역 */
+.inputContent {
+  width: 100%;
+  height: 156px;
+  background-color: #f3e5f5;
+  border: 1px solid #9c27b0;
+  border-radius: 6px;
+}
+
+/* Footer 영역 */
+.footer {
+  width: 100%;
+  height: 48px;
+  background-color: #fce4ec;
+  border: 1px solid #e91e63;
+  border-radius: 6px;
+}
