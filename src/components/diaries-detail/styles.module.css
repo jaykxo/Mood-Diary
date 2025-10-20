@@ -1,0 +1,314 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1168px;
+  margin: 0 auto;
+}
+
+/* 첫 번째 gap: 1168 * 64 = 64px */
+.gap1 {
+  height: 64px;
+}
+
+/* detail-title 영역: 1168 * 84 = 84px */
+.detailTitle {
+  height: 84px;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.titleSection {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--color-gray-black);
+}
+
+.title {
+  font-family: var(--font-family-default);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -0.22px;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.emotionDateSection {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px
+}
+
+.emotionSection {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.emotionIcon {
+  width: 32px;
+  height: 32px;
+}
+
+.emotionLabel {
+  font-family: var(--font-family-default);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+  color: var(--color-red-30);
+}
+
+.dateSection {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dateText {
+  font-family: var(--font-family-default);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.14px;
+  color: var(--color-gray-50);
+}
+
+.dateLabel {
+  font-family: var(--font-family-default);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.14px;
+  color: var(--color-gray-50);
+}
+
+/* 두 번째 gap: 1168 * 24 = 24px */
+.gap2 {
+  height: 24px;
+}
+
+/* detail-content 영역: 1168 * 169 = 169px */
+.detailContent {
+  height: 169px;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.contentSection {
+  height: 133px;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.contentLabel {
+  font-family: var(--font-family-default);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.16px;
+  color: var(--color-text-primary);
+  margin: 0 0 8px 0;
+}
+
+.contentText {
+  font-family: var(--font-family-default);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.16px;
+  color: var(--color-gray-80);
+  margin: 0;
+  flex: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+
+.copySection {
+  height: 24px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0;
+}
+
+.copyButton {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.copyIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.copyText {
+  font-family: var(--font-family-default);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.16px;
+  color: var(--color-gray-90);
+}
+
+/* 세 번째 gap: 1168 * 24 = 24px */
+.gap3 {
+  height: 24px;
+}
+
+/* detail-footer 영역: 1168 * 40 = 40px */
+.detailFooter {
+  height: 56px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 0;
+  border-bottom: 2px solid var(--color-gray-black);
+}
+
+.editButton {
+  width: 51px !important;
+  min-width: 51px !important;
+  height: 40px !important;
+  padding: 0 !important;
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.18px !important;
+  line-height: 24px !important;
+}
+
+.deleteButton {
+  width: 51px !important;
+  min-width: 51px !important;
+  height: 40px !important;
+  padding: 0 !important;
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.18px !important;
+  line-height: 24px !important;
+}
+
+/* 네 번째 gap: 1168 * 24 = 24px */
+.gap4 {
+  height: 24px;
+}
+
+/* retrospect-input 영역: 1168 * 85 = 85px */
+.retrospectInput {
+  height: 85px;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.retrospectInputLabel {
+  font-family: var(--font-family-default);
+  font-size: var(--typo-title01-size);
+  font-weight: var(--typo-title01-weight);
+  line-height: var(--typo-title01-line);
+  letter-spacing: -0.18px;
+  color: var(--color-text-primary);
+  margin: 0 0 13px 0;
+}
+
+.retrospectInputContainer {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0;
+}
+
+.retrospectInputField {
+  width: 1101px;
+  flex-shrink: 0;
+}
+
+.retrospectInputButton {
+  width: 51px;
+  min-width: 51px;
+  height: 48px;
+  flex-shrink: 0;
+}
+
+/* 다섯 번째 gap: 1168 * 16 = 16px */
+.gap5 {
+  height: 16px;
+}
+
+/* retrospect-list 영역: 1168 * 72 = 72px */
+.retrospectList {
+  min-height: 72px;
+  border-radius: 16px;
+  background: var(--color-gray-white);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.retrospectItem {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.retrospectItemContent {
+  height: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0;
+}
+
+.retrospectItemText {
+  font-family: var(--font-family-default);
+  font-size: var(--typo-body01-size);
+  font-weight: var(--typo-body01-weight);
+  line-height: var(--typo-body01-line);
+  letter-spacing: -0.16px;
+  color: var(--color-text-primary);
+  flex-shrink: 0;
+}
+
+.retrospectItemDate {
+  font-family: var(--font-family-default);
+  font-size: var(--typo-body01-size);
+  font-weight: var(--typo-body01-regular-weight);
+  line-height: var(--typo-body01-line);
+  letter-spacing: -0.16px;
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+}
+
+.retrospectDivider {
+  height: 0;
+  border-top: 1px solid var(--color-gray-10);
+  margin: 12px 0;
+}
+
+.areaLabel {
+  font-family: var(--font-family-default);
+  font-size: var(--typo-body02-medium-size);
+  font-weight: var(--typo-body02-medium-weight);
+  color: var(--color-text-primary);
+  background: var(--color-background);
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+}
