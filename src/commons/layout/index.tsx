@@ -1,18 +1,29 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 import styles from './styles.module.css';
+import { useLinkRouting } from './hooks/index.link.routing.hook';
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
 export default function Layout({ children }: LayoutProps) {
+  const {
+    handleLogoClick,
+    handleDiariesClick,
+    handlePicturesClick,
+    isDiariesActive,
+    isPicturesActive,
+  } = useLinkRouting();
+
   return (
     <div className={styles.container}>
       <header className={styles.header}>
         <div className={styles.headerContent}>
-          <div className={styles.logo}>
-            <h1 className={styles.logoText}>명수의 다이어리</h1>
+          <div className={styles.logo} onClick={handleLogoClick} data-testid="logo">
+            <h1 className={styles.logoText}>민지의 다이어리</h1>
           </div>
         </div>
       </header>
@@ -29,11 +40,23 @@ export default function Layout({ children }: LayoutProps) {
       
       <nav className={styles.navigation}>
         <div className={styles.navContent}>
-          <div className={styles.tabActive}>
-            <span className={styles.tabTextActive}>일기보관함</span>
+          <div 
+            className={isDiariesActive ? styles.tabActive : styles.tab}
+            onClick={handleDiariesClick}
+            data-testid="diaries-tab"
+          >
+            <span className={isDiariesActive ? styles.tabTextActive : styles.tabTextInactive}>
+              일기보관함
+            </span>
           </div>
-          <div className={styles.tab}>
-            <span className={styles.tabTextInactive}>사진보관함</span>
+          <div 
+            className={isPicturesActive ? styles.tabActive : styles.tab}
+            onClick={handlePicturesClick}
+            data-testid="pictures-tab"
+          >
+            <span className={isPicturesActive ? styles.tabTextActive : styles.tabTextInactive}>
+              사진보관함
+            </span>
           </div>
         </div>
       </nav>
@@ -46,10 +69,10 @@ export default function Layout({ children }: LayoutProps) {
       
       <footer className={styles.footer}>
         <div className={styles.footerContent}>
-          <h2 className={styles.footerTitle}>명수의 다이어리</h2>
+          <h2 className={styles.footerTitle}>민지의 다이어리</h2>
           <div className={styles.footerInfo}>
-            <p className={styles.footerRepresentative}>대표 : 명수</p>
-            <p className={styles.footerCopyright}>Copyright © 2025. 명수 Co., Ltd.</p>
+            <p className={styles.footerRepresentative}>대표 : 민지</p>
+            <p className={styles.footerCopyright}>Copyright © 2025. 민지 Co., Ltd.</p>
           </div>
         </div>
       </footer>
