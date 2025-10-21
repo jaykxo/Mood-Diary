@@ -8,6 +8,7 @@ import { SearchBar } from '@/commons/components/searchbar';
 import { Button } from '@/commons/components/button';
 import { Pagination } from '@/commons/components/pagination';
 import { EmotionType, emotionMetaMap } from '@/commons/constants/enum';
+import { useDiaryWriteModal } from './hooks/index.link.modal.hook';
 
 // 일기 데이터 타입 정의
 interface DiaryData {
@@ -22,6 +23,9 @@ const DiariesComponent: React.FC = () => {
   // 페이지네이션 상태
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 5; // 피그마 디자인에 맞춰 5페이지로 설정
+  
+  // 모달 훅 사용
+  const { openDiaryWriteModal } = useDiaryWriteModal();
 
   // 필터 옵션 데이터
   const filterOptions = [
@@ -173,7 +177,7 @@ const DiariesComponent: React.FC = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-testid="diaries-page">
       {/* Search Section */}
       <div className={styles.search}>
         <div className={styles.searchContent}>
@@ -207,6 +211,8 @@ const DiariesComponent: React.FC = () => {
               variant="primary"
               theme="light"
               size="large"
+              onClick={openDiaryWriteModal}
+              data-testid="diary-write-button"
               icon={
                 <Image
                   src="/icons/plus_outline_light_m.svg"
