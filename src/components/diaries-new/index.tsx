@@ -125,6 +125,7 @@ export const DiariesNew: React.FC<DiariesNewProps> = ({
             theme="light"
             size="large"
             onClick={onClose}
+            data-testid="close-button"
           >
             닫기
           </Button>

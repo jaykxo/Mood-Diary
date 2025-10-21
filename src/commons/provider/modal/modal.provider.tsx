@@ -53,7 +53,7 @@ export function ModalProvider({ children }: ModalProviderProps) {
       className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
       onClick={handleBackdropClick}
     >
-      <div className="relative bg-white rounded-lg shadow-xl">
+      <div className="relative">
         {modalContent}
       </div>
     </div>

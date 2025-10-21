@@ -22,6 +22,7 @@
 .logo {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .logoText {
@@ -80,6 +81,7 @@
   justify-content: center;
   width: 119px;
   height: 48px;
+  cursor: pointer;
 }
 
 .tabActive {
@@ -89,6 +91,7 @@
   width: 119px;
   height: 48px;
   border-bottom: 2px solid var(--color-text-primary);
+  cursor: pointer;
 }
 
 .tabTextActive {
