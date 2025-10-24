@@ -1,0 +1,274 @@
+/* ========================================
+   Modal Component Styles
+   ======================================== */
+
+.modal {
+  /* 기본 모달 스타일 */
+  width: 480px;
+  background: var(--color-background);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  
+  /* 레이아웃 */
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  
+  /* 포커스 스타일 */
+  outline: none;
+}
+
+.modal:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ========================================
+   Content Container
+   ======================================== */
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+  width: 432px; /* 피그마 디자인 기준: 480px - 24px*2 */
+  margin: 0 auto;
+}
+
+.title {
+  /* 피그마 디자인 기준: 24px, Bold, Pretendard */
+  font-family: var(--font-family-default);
+  font-size: 24px;
+  font-weight: var(--font-weight-bold);
+  line-height: 24px;
+  letter-spacing: -0.24px;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.content {
+  /* 피그마 디자인 기준: 20px, Medium, Pretendard */
+  font-family: var(--font-family-default);
+  font-size: 20px;
+  font-weight: var(--font-weight-medium);
+  line-height: 24px;
+  letter-spacing: -0.2px;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* ========================================
+   Button Container
+   ======================================== */
+
+.buttonContainer {
+  display: flex;
+  gap: 12px;
+  width: 432px; /* 피그마 디자인 기준: 480px - 24px*2 */
+  margin: 0 auto;
+}
+
+/* Single Action Buttons */
+.singleButton {
+  width: 100%;
+}
+
+/* Dual Action Buttons */
+.dualButton {
+  flex: 1;
+}
+
+/* ========================================
+   Variant Styles
+   ======================================== */
+
+/* Info variant (기본) - 기본 스타일과 동일하므로 별도 스타일 불필요 */
+
+/* Danger variant */
+.modal.danger .title {
+  color: var(--color-error);
+}
+
+.modal.danger .content {
+  color: var(--color-error);
+}
+
+/* ========================================
+   Size Variants
+   ======================================== */
+
+.small {
+  width: 320px;
+  padding: 16px;
+  gap: 16px;
+}
+
+.small .title {
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -0.18px;
+}
+
+.small .content {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.14px;
+}
+
+.small .contentContainer {
+  width: 288px; /* 320px - 16px*2 */
+}
+
+.small .buttonContainer {
+  width: 288px; /* 320px - 16px*2 */
+}
+
+/* Medium size - 기본 스타일과 동일하므로 별도 스타일 불필요 */
+
+.large {
+  width: 560px;
+  padding: 32px;
+  gap: 32px;
+}
+
+.large .title {
+  font-size: 28px;
+  line-height: 36px;
+  letter-spacing: -0.28px;
+}
+
+.large .content {
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: -0.24px;
+}
+
+.large .contentContainer {
+  width: 496px; /* 560px - 32px*2 */
+}
+
+.large .buttonContainer {
+  width: 496px; /* 560px - 32px*2 */
+}
+
+/* ========================================
+   Actions Styles
+   ======================================== */
+
+/* Single action (기본) - 기본 스타일과 동일하므로 별도 스타일 불필요 */
+
+/* Dual action - 기본 스타일과 동일하므로 별도 스타일 불필요 */
+
+/* ========================================
+   Theme Styles
+   ======================================== */
+
+/* ========================================
+   Full Width Variant
+   ======================================== */
+
+.fullWidth {
+  width: 100%;
+  max-width: 480px;
+}
+
+.fullWidth .contentContainer {
+  width: 100%;
+}
+
+.fullWidth .buttonContainer {
+  width: 100%;
+}
+
+/* ========================================
+   Disabled State
+   ======================================== */
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.disabled .title {
+  color: var(--color-text-disabled);
+}
+
+.disabled .content {
+  color: var(--color-text-disabled);
+}
+
+/* ========================================
+   Light theme (기본) - 기본 스타일과 동일하므로 별도 스타일 불필요 */
+
+/* Dark theme */
+.modal.dark {
+  background: var(--color-surface);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.24);
+}
+
+.modal.dark .title {
+  color: var(--color-text-primary);
+}
+
+.modal.dark .content {
+  color: var(--color-text-secondary);
+}
+
+.modal.dark.danger .title {
+  color: var(--color-error);
+}
+
+.modal.dark.danger .content {
+  color: var(--color-error);
+}
+
+/* ========================================
+   Responsive Design
+   ======================================== */
+
+@media (max-width: 768px) {
+  .modal {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 16px;
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  .title {
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: -0.2px;
+  }
+  
+  .content {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.16px;
+  }
+  
+  .buttonContainer {
+    gap: 8px;
+  }
+}
+
+/* ========================================
+   Animation (선택사항)
+   ======================================== */
+
+.modal {
+  animation: modalFadeIn 0.2s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
