@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Input } from '@/commons/components/input';
 import { Button } from '@/commons/components/button';
 import { EmotionType, emotionMetaMap, allEmotions } from '@/commons/constants/enum';
+import { useDiaryModalClose } from './hooks/index.link.modal.close.hook';
 import styles from './styles.module.css';
 
 // ========================================
@@ -37,9 +38,20 @@ export const DiariesNew: React.FC<DiariesNewProps> = ({
   const [selectedEmotion, setSelectedEmotion] = useState<EmotionType>(EmotionType.Happy);
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  
+  // 등록취소 모달 닫기 훅 사용
+  const { openCancelConfirmationModal } = useDiaryModalClose();
 
   const handleEmotionChange = (emotion: EmotionType) => {
     setSelectedEmotion(emotion);
+  };
+
+  /**
+   * 닫기 버튼 클릭 핸들러
+   * 등록취소 모달을 엽니다.
+   */
+  const handleCloseClick = () => {
+    openCancelConfirmationModal(onClose);
   };
 
   const handleSubmit = () => {
@@ -124,7 +136,7 @@ export const DiariesNew: React.FC<DiariesNewProps> = ({
             variant="tertiary"
             theme="light"
             size="large"
-            onClick={onClose}
+            onClick={handleCloseClick}
             data-testid="close-button"
           >
             닫기
