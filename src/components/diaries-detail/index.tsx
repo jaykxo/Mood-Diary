@@ -132,7 +132,7 @@ const DiariesDetail: React.FC<DiariesDetailProps> = () => {
       {/* detail-footer 영역: 1168 * 40 = 40px */}
       <div className={styles.detailFooter}>
         <Button
-          variant="tertiary"
+          variant="secondary"
           theme="light"
           size="medium"
           className={styles.editButton}
@@ -140,7 +140,7 @@ const DiariesDetail: React.FC<DiariesDetailProps> = () => {
           수정
         </Button>
         <Button
-          variant="tertiary"
+          variant="secondary"
           theme="light"
           size="medium"
           className={styles.deleteButton}

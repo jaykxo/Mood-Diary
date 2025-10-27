@@ -133,7 +133,7 @@ export const DiariesNew: React.FC<DiariesNewProps> = ({
         {/* Footer 영역 */}
         <div className={styles.footer}>
           <Button
-            variant="tertiary"
+            variant="secondary"
             theme="light"
             size="large"
             onClick={handleCloseClick}
