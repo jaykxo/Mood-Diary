@@ -62,10 +62,10 @@ export const useDiaryModalClose = (): UseModalCloseReturn => {
         <Modal
           variant="info"
           actions="dual"
-          title="등록을 취소하시겠습니까?"
-          content="작성하신 내용이 저장되지 않습니다."
-          confirmText="등록취소"
-          cancelText="계속작성"
+          title="일기 등록 취소"
+          content="일기 등록을 취소 하시겠어요?"
+          confirmText="등록 취소"
+          cancelText="계속 작성"
           onConfirm={() => handleConfirmCancel(parentCloseHandler)}
           onCancel={handleContinueWriting}
         />

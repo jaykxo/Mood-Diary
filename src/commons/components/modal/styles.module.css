@@ -31,7 +31,7 @@
 .contentContainer {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 16px;
   text-align: center;
   width: 432px; /* 피그마 디자인 기준: 480px - 24px*2 */
   margin: 0 auto;
@@ -66,7 +66,7 @@
 .buttonContainer {
   display: flex;
   justify-content: center;
-  gap: 16px;
+  gap: 21px;
   width: 432px; /* 피그마 디자인 기준: 480px - 24px*2 */
   margin: 0 auto;
 }

@@ -28,7 +28,7 @@ test.describe('일기쓰기 모달 닫기 기능', () => {
       await expect(page.locator('[data-testid="cancel-confirmation-modal"]')).toBeVisible();
       
       // 등록취소 모달 내용 확인
-      await expect(page.locator('[data-testid="cancel-confirmation-modal"] h2')).toHaveText('등록을 취소하시겠습니까?');
+      await expect(page.locator('[data-testid="cancel-confirmation-modal"] h2')).toHaveText('일기 등록 취소');
     });
 
     test('등록취소 모달이 일기쓰기 모달 위에 2중 모달로 표시되는지 확인', async ({ page }) => {
@@ -50,7 +50,7 @@ test.describe('일기쓰기 모달 닫기 기능', () => {
 
     test('계속작성 버튼 클릭시 등록취소 모달만 닫히는지 확인', async ({ page }) => {
       // 계속작성 버튼 클릭 (텍스트로 찾기)
-      await page.locator('button:has-text("계속작성")').click({ force: true });
+      await page.locator('button:has-text("계속 작성")').click({ force: true });
       
       // 등록취소 모달은 닫히고 일기쓰기 모달은 여전히 열려있는지 확인
       await expect(page.locator('[data-testid="cancel-confirmation-modal"]')).not.toBeVisible();
@@ -59,7 +59,7 @@ test.describe('일기쓰기 모달 닫기 기능', () => {
 
     test('등록취소 버튼 클릭시 부모와 자식 모달 모두 닫히는지 확인', async ({ page }) => {
       // 등록취소 버튼 클릭 (텍스트로 찾기)
-      await page.locator('button:has-text("등록취소")').click({ force: true });
+      await page.locator('button:has-text("등록 취소")').click({ force: true });
       
       // 일기쓰기 모달과 등록취소 모달이 모두 닫혔는지 확인
       await expect(page.locator('[data-testid="diary-write-modal"]')).not.toBeVisible();
