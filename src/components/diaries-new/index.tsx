@@ -1,9 +1,11 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Input } from '@/commons/components/input';
 import { Button } from '@/commons/components/button';
 import { EmotionType, emotionMetaMap, allEmotions } from '@/commons/constants/enum';
+import { useDiaryModalClose } from './hooks/index.link.modal.close.hook';
+import { useDiaryForm } from './hooks/index.form.hook';
 import styles from './styles.module.css';
 
 // ========================================
@@ -34,21 +36,34 @@ export const DiariesNew: React.FC<DiariesNewProps> = ({
   onClose,
   onSubmit 
 }) => {
-  const [selectedEmotion, setSelectedEmotion] = useState<EmotionType>(EmotionType.Happy);
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
+  // 폼 훅 사용
+  const {
+    formData,
+    handleSubmit: handleFormSubmit,
+    isSubmitEnabled,
+    handleTitleChange,
+    handleContentChange,
+    handleEmotionChange,
+  } = useDiaryForm();
+  
+  // 등록취소 모달 닫기 훅 사용
+  const { openCancelConfirmationModal } = useDiaryModalClose();
 
-  const handleEmotionChange = (emotion: EmotionType) => {
-    setSelectedEmotion(emotion);
+  /**
+   * 닫기 버튼 클릭 핸들러
+   * 등록취소 모달을 엽니다.
+   */
+  const handleCloseClick = () => {
+    openCancelConfirmationModal(onClose);
   };
 
+  /**
+   * 폼 제출 핸들러
+   */
   const handleSubmit = () => {
+    handleFormSubmit();
     if (onSubmit) {
-      onSubmit({
-        emotion: selectedEmotion,
-        title,
-        content
-      });
+      onSubmit(formData);
     }
   };
 
@@ -74,7 +89,7 @@ export const DiariesNew: React.FC<DiariesNewProps> = ({
                     type="radio"
                     name="emotion"
                     value={emotion}
-                    checked={selectedEmotion === emotion}
+                    checked={formData.emotion === emotion}
                     onChange={() => handleEmotionChange(emotion)}
                     className={styles.emotionRadio}
                   />
@@ -93,8 +108,8 @@ export const DiariesNew: React.FC<DiariesNewProps> = ({
           <Input
             label="제목"
             placeholder="제목을 입력합니다."
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            value={formData.title}
+            onChange={(e) => handleTitleChange(e.target.value)}
             variant="primary"
             theme="light"
             size="medium"
@@ -110,8 +125,8 @@ export const DiariesNew: React.FC<DiariesNewProps> = ({
           <textarea 
             className={styles.contentTextarea}
             placeholder="내용을 입력합니다."
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
+            value={formData.content}
+            onChange={(e) => handleContentChange(e.target.value)}
           />
         </div>
         
@@ -121,10 +136,10 @@ export const DiariesNew: React.FC<DiariesNewProps> = ({
         {/* Footer 영역 */}
         <div className={styles.footer}>
           <Button
-            variant="tertiary"
+            variant="secondary"
             theme="light"
             size="large"
-            onClick={onClose}
+            onClick={handleCloseClick}
             data-testid="close-button"
           >
             닫기
@@ -134,6 +149,7 @@ export const DiariesNew: React.FC<DiariesNewProps> = ({
             theme="light"
             size="large"
             onClick={handleSubmit}
+            disabled={!isSubmitEnabled}
           >
             등록하기
           </Button>

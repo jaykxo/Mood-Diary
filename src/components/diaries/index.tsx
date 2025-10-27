@@ -9,10 +9,12 @@ import { Button } from '@/commons/components/button';
 import { Pagination } from '@/commons/components/pagination';
 import { EmotionType, emotionMetaMap } from '@/commons/constants/enum';
 import { useDiaryWriteModal } from './hooks/index.link.modal.hook';
+import { useDiariesBinding, DiaryData } from './hooks/index.binding.hook';
+import { useDiaryRouting } from './hooks/index.link.routing.hook';
 
-// 일기 데이터 타입 정의
-interface DiaryData {
-  id: string;
+// 일기 카드 표시용 데이터 타입
+interface DiaryCardData {
+  id: number;
   emotion: EmotionType;
   title: string;
   date: string;
@@ -27,6 +29,12 @@ const DiariesComponent: React.FC = () => {
   // 모달 훅 사용
   const { openDiaryWriteModal } = useDiaryWriteModal();
 
+  // 일기 목록 바인딩 훅 사용
+  const { diaries } = useDiariesBinding();
+
+  // 일기 카드 라우팅 훅 사용
+  const { goToDiaryDetail } = useDiaryRouting();
+
   // 필터 옵션 데이터
   const filterOptions = [
     { value: 'all', label: '전체' },
@@ -37,111 +45,70 @@ const DiariesComponent: React.FC = () => {
     { value: 'etc', label: '기타' },
   ];
 
-  // Mock 일기 데이터 생성
-  const mockDiaries: DiaryData[] = [
-    {
-      id: '1',
-      emotion: EmotionType.Sad,
-      title: '타이틀 영역 입니다. 한줄까지만 노출 됩니다.',
-      date: '2024. 03. 12',
-      image: '/images/emotion-sad-m.png'
-    },
-    {
-      id: '2',
-      emotion: EmotionType.Surprise,
-      title: '타이틀 영역 입니다.',
-      date: '2024. 03. 12',
-      image: '/images/emotion-surprise-m.png'
-    },
-    {
-      id: '3',
-      emotion: EmotionType.Angry,
-      title: '타이틀 영역 입니다.',
-      date: '2024. 03. 12',
-      image: '/images/emotion-angry-m.png'
-    },
-    {
-      id: '4',
-      emotion: EmotionType.Happy,
-      title: '타이틀 영역 입니다.',
-      date: '2024. 03. 12',
-      image: '/images/emotion-happy-m.png'
-    },
-    {
-      id: '5',
-      emotion: EmotionType.Etc,
-      title: '타이틀 영역 입니다. 한줄까지만 노출 됩니다.',
-      date: '2024. 03. 12',
-      image: '/images/emotion-etc-m.png'
-    },
-    {
-      id: '6',
-      emotion: EmotionType.Surprise,
-      title: '타이틀 영역 입니다.',
-      date: '2024. 03. 12',
-      image: '/images/emotion-surprise-m.png'
-    },
-    {
-      id: '7',
-      emotion: EmotionType.Angry,
-      title: '타이틀 영역 입니다.',
-      date: '2024. 03. 12',
-      image: '/images/emotion-angry-m.png'
-    },
-    {
-      id: '8',
-      emotion: EmotionType.Happy,
-      title: '타이틀 영역 입니다.',
-      date: '2024. 03. 12',
-      image: '/images/emotion-happy-m.png'
-    },
-    {
-      id: '9',
-      emotion: EmotionType.Sad,
-      title: '타이틀 영역 입니다. 한줄까지만 노출 됩니다.',
-      date: '2024. 03. 12',
-      image: '/images/emotion-sad-m.png'
-    },
-    {
-      id: '10',
-      emotion: EmotionType.Surprise,
-      title: '타이틀 영역 입니다.',
-      date: '2024. 03. 12',
-      image: '/images/emotion-surprise-m.png'
-    },
-    {
-      id: '11',
-      emotion: EmotionType.Angry,
-      title: '타이틀 영역 입니다.',
-      date: '2024. 03. 12',
-      image: '/images/emotion-angry-m.png'
-    },
-    {
-      id: '12',
-      emotion: EmotionType.Happy,
-      title: '타이틀 영역 입니다.',
-      date: '2024. 03. 12',
-      image: '/images/emotion-happy-m.png'
-    }
-  ];
+  /**
+   * 로컬스토리지 데이터를 카드 표시용 데이터로 변환
+   */
+  const convertToCardData = (diary: DiaryData): DiaryCardData => {
+    // 날짜 포맷 변환: ISO string -> YYYY. MM. DD 형식
+    const date = new Date(diary.createdAt);
+    const formattedDate = `${date.getFullYear()}. ${String(date.getMonth() + 1).padStart(2, '0')}. ${String(date.getDate()).padStart(2, '0')}`;
+    
+    // emotion에 따른 이미지 경로 설정 (존재하지 않는 emotion인 경우 Etc로 fallback)
+    const emotionMeta = emotionMetaMap[diary.emotion] || emotionMetaMap[EmotionType.Etc];
+    const image = emotionMeta?.icon.medium || '/images/emotion-etc-m.png';
+
+    return {
+      id: diary.id,
+      emotion: diary.emotion,
+      title: diary.title,
+      date: formattedDate,
+      image,
+    };
+  };
+
+  // 일기 데이터를 카드 표시용 데이터로 변환
+  const cardDiaries: DiaryCardData[] = diaries.map(convertToCardData);
 
   // 일기카드 컴포넌트
-  const DiaryCard: React.FC<{ diary: DiaryData }> = ({ diary }) => {
-    const emotionMeta = emotionMetaMap[diary.emotion];
+  const DiaryCard: React.FC<{ diary: DiaryCardData }> = ({ diary }) => {
+    // emotion에 따른 메타데이터 가져오기 (존재하지 않는 emotion인 경우 Etc로 fallback)
+    const emotionMeta = emotionMetaMap[diary.emotion] || emotionMetaMap[EmotionType.Etc];
+    
+    // 이미지 경로가 유효한지 확인하고 없으면 fallback 이미지 사용
+    const imageSrc = diary.image && diary.image.startsWith('/') ? diary.image : '/images/emotion-etc-m.png';
+    
+    // 일기 카드 클릭 핸들러
+    const handleCardClick = () => {
+      goToDiaryDetail(diary.id);
+    };
+
+    // 삭제 아이콘 클릭 핸들러 (페이지 이동 방지)
+    const handleDeleteClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+      e.stopPropagation(); // 이벤트 전파 방지
+      // TODO: 삭제 기능 구현
+    };
     
     return (
-      <div className={styles.diaryCard}>
+      <div 
+        className={styles.diaryCard} 
+        data-testid={`diary-card-${diary.id}`}
+        onClick={handleCardClick}
+      >
         {/* 이미지 영역 */}
         <div className={styles.diaryImageContainer}>
           <Image
-            src={diary.image}
+            src={imageSrc}
             alt={emotionMeta.label}
             width={274}
             height={208}
             className={styles.diaryImage}
           />
           {/* 닫기 버튼 */}
-          <button className={styles.closeButton}>
+          <button 
+            className={styles.closeButton}
+            onClick={handleDeleteClick}
+            data-testid={`diary-delete-${diary.id}`}
+          >
             <Image
               src="/icons/close_outline_light_m.svg"
               alt="close"
@@ -158,17 +125,18 @@ const DiariesComponent: React.FC = () => {
           <div className={styles.diaryHeader}>
             <span 
               className={styles.emotionLabel}
+              data-testid="emotion-label"
               style={{ color: emotionMeta.color }}
             >
               {emotionMeta.label}
             </span>
-            <span className={styles.diaryDate}>
+            <span className={styles.diaryDate} data-testid="diary-date">
               {diary.date}
             </span>
           </div>
           
           {/* 제목 */}
-          <div className={styles.diaryTitle}>
+          <div className={styles.diaryTitle} data-testid="diary-title">
             {diary.title}
           </div>
         </div>
@@ -233,7 +201,7 @@ const DiariesComponent: React.FC = () => {
         <div className={styles.mainContent}>
           {/* Diary Grid */}
           <div className={styles.diaryGrid}>
-            {mockDiaries.map((diary) => (
+            {cardDiaries.map((diary) => (
               <DiaryCard key={diary.id} diary={diary} />
             ))}
           </div>
