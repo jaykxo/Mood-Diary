@@ -10,16 +10,17 @@
   justify-content: center;
 }
 
-/* 중첩 모달이 아닌 경우에만 배경색 적용 */
-.backdrop:last-child {
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.backdrop:not(:last-child) {
+.backdrop.nested {
   background-color: transparent;
+  pointer-events: none;
 }
 
 .modalContent {
   position: relative;
+  z-index: 1;
+}
+
+.backdrop.nested .modalContent {
+  pointer-events: auto;
 }
 

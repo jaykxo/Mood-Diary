@@ -107,11 +107,12 @@ export function ModalProvider({ children }: ModalProviderProps) {
 
   const modalPortals = isMounted && modals.map((modal, index) => {
     const zIndex = 1000 + index;
+    const isLastModal = index === modals.length - 1;
     
     return (
       <div
         key={modal.id}
-        className={styles.backdrop}
+        className={`${styles.backdrop} ${!isLastModal ? styles.nested : ''}`}
         style={{ zIndex }}
         onClick={(e) => handleBackdropClick(e, index)}
       >

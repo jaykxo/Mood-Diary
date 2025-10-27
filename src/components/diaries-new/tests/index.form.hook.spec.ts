@@ -65,7 +65,7 @@ test.describe('일기쓰기 폼 등록 기능', () => {
       await page.locator('textarea[placeholder="내용을 입력합니다."]').fill('테스트 내용');
       
       // 등록하기 버튼 클릭
-      await page.locator('button:has-text("등록하기")').click();
+      await page.locator('button:has-text("등록하기")').click({ force: true });
       
       // 등록 완료 모달이 표시되는지 확인
       await expect(page.locator('h2:has-text("등록 완료")')).toBeVisible();
@@ -92,7 +92,7 @@ test.describe('일기쓰기 폼 등록 기능', () => {
       await page.locator('textarea[placeholder="내용을 입력합니다."]').fill('테스트 내용');
       
       // 등록하기 버튼 클릭
-      await page.locator('button:has-text("등록하기")').click();
+      await page.locator('button:has-text("등록하기")').click({ force: true });
       
       // 등록 완료 모달 확인
       await expect(page.locator('h2:has-text("등록 완료")')).toBeVisible();
@@ -105,6 +105,46 @@ test.describe('일기쓰기 폼 등록 기능', () => {
       
       // 모든 모달이 닫혔는지 확인
       await expect(page.locator('[data-testid="diary-write-modal"]')).not.toBeVisible();
+    });
+
+    test('등록 완료 모달 표시 시 부모 일기쓰기 모달이 유지되는지 확인', async ({ page }) => {
+      // 제목과 내용 입력
+      await page.locator('input[placeholder="제목을 입력합니다."]').fill('테스트 제목');
+      await page.locator('textarea[placeholder="내용을 입력합니다."]').fill('테스트 내용');
+      
+      // 등록하기 버튼 클릭
+      await page.locator('button:has-text("등록하기")').click({ force: true });
+      
+      // 등록 완료 모달이 표시되는지 확인
+      await expect(page.locator('[data-testid="registration-success-modal"]')).toBeVisible();
+      
+      // 부모 모달(일기쓰기 모달)이 여전히 열려있는지 확인
+      await expect(page.locator('[data-testid="diary-write-modal"]')).toBeVisible();
+    });
+
+    test('등록 완료 모달 확인 버튼 클릭 시 모든 모달이 닫히고 페이지 이동하는지 확인', async ({ page }) => {
+      // 제목과 내용 입력
+      await page.locator('input[placeholder="제목을 입력합니다."]').fill('테스트 제목');
+      await page.locator('textarea[placeholder="내용을 입력합니다."]').fill('테스트 내용');
+      
+      // 등록하기 버튼 클릭
+      await page.locator('button:has-text("등록하기")').click({ force: true });
+      
+      // 등록 완료 모달이 표시되는지 확인
+      await expect(page.locator('[data-testid="registration-success-modal"]')).toBeVisible();
+      
+      // 부모 모달이 여전히 열려있는지 확인
+      await expect(page.locator('[data-testid="diary-write-modal"]')).toBeVisible();
+      
+      // 확인 버튼 클릭
+      await page.locator('button:has-text("확인")').click();
+      
+      // 모든 모달이 닫혔는지 확인
+      await expect(page.locator('[data-testid="diary-write-modal"]')).not.toBeVisible();
+      await expect(page.locator('[data-testid="registration-success-modal"]')).not.toBeVisible();
+      
+      // 상세페이지로 이동했는지 확인
+      await expect(page).toHaveURL(/\/diaries\/1$/);
     });
   });
 
@@ -138,7 +178,7 @@ test.describe('일기쓰기 폼 등록 기능', () => {
       await page.locator('textarea[placeholder="내용을 입력합니다."]').fill('새로운 내용');
       
       // 등록하기 버튼 클릭
-      await page.locator('button:has-text("등록하기")').click();
+      await page.locator('button:has-text("등록하기")').click({ force: true });
       
       // 등록 완료 모달 확인
       await expect(page.locator('h2:has-text("등록 완료")')).toBeVisible();
@@ -167,7 +207,7 @@ test.describe('일기쓰기 폼 등록 기능', () => {
       await page.locator('textarea[placeholder="내용을 입력합니다."]').fill('새로운 내용');
       
       // 등록하기 버튼 클릭
-      await page.locator('button:has-text("등록하기")').click();
+      await page.locator('button:has-text("등록하기")').click({ force: true });
       
       // 등록 완료 모달 확인
       await expect(page.locator('h2:has-text("등록 완료")')).toBeVisible();

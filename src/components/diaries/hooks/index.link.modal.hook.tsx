@@ -53,9 +53,8 @@ export const useDiaryWriteModal = () => {
   const handleDiarySubmit = (data: DiaryFormData) => {
     // TODO: 실제 일기 등록 로직 구현
     console.log('일기 등록:', data);
-    
-    // 등록 후 모달 닫기
-    closeDiaryWriteModal();
+    // ✅ 등록 완료 모달이 열려있는 동안에는 일기쓰기 모달을 유지해야 합니다.
+    // 따라서 즉시 closeDiaryWriteModal() 을 호출하지 않습니다.
   };
 
   return {
