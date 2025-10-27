@@ -65,7 +65,8 @@
 
 .buttonContainer {
   display: flex;
-  gap: 12px;
+  justify-content: center;
+  gap: 16px;
   width: 432px; /* 피그마 디자인 기준: 480px - 24px*2 */
   margin: 0 auto;
 }
