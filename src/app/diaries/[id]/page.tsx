@@ -9,7 +9,7 @@ interface PageProps {
 
 const DiaryDetailPage: React.FC<PageProps> = () => {
   return (
-    <div>
+    <div data-testid="diary-detail-page">
       <DiariesDetail />
     </div>
   );
