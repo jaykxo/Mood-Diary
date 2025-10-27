@@ -10,6 +10,7 @@ import { Pagination } from '@/commons/components/pagination';
 import { EmotionType, emotionMetaMap } from '@/commons/constants/enum';
 import { useDiaryWriteModal } from './hooks/index.link.modal.hook';
 import { useDiariesBinding, DiaryData } from './hooks/index.binding.hook';
+import { useDiaryRouting } from './hooks/index.link.routing.hook';
 
 // 일기 카드 표시용 데이터 타입
 interface DiaryCardData {
@@ -30,6 +31,9 @@ const DiariesComponent: React.FC = () => {
 
   // 일기 목록 바인딩 훅 사용
   const { diaries } = useDiariesBinding();
+
+  // 일기 카드 라우팅 훅 사용
+  const { goToDiaryDetail } = useDiaryRouting();
 
   // 필터 옵션 데이터
   const filterOptions = [
@@ -73,8 +77,23 @@ const DiariesComponent: React.FC = () => {
     // 이미지 경로가 유효한지 확인하고 없으면 fallback 이미지 사용
     const imageSrc = diary.image && diary.image.startsWith('/') ? diary.image : '/images/emotion-etc-m.png';
     
+    // 일기 카드 클릭 핸들러
+    const handleCardClick = () => {
+      goToDiaryDetail(diary.id);
+    };
+
+    // 삭제 아이콘 클릭 핸들러 (페이지 이동 방지)
+    const handleDeleteClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+      e.stopPropagation(); // 이벤트 전파 방지
+      // TODO: 삭제 기능 구현
+    };
+    
     return (
-      <div className={styles.diaryCard} data-testid={`diary-card-${diary.id}`}>
+      <div 
+        className={styles.diaryCard} 
+        data-testid={`diary-card-${diary.id}`}
+        onClick={handleCardClick}
+      >
         {/* 이미지 영역 */}
         <div className={styles.diaryImageContainer}>
           <Image
@@ -85,7 +104,11 @@ const DiariesComponent: React.FC = () => {
             className={styles.diaryImage}
           />
           {/* 닫기 버튼 */}
-          <button className={styles.closeButton}>
+          <button 
+            className={styles.closeButton}
+            onClick={handleDeleteClick}
+            data-testid={`diary-delete-${diary.id}`}
+          >
             <Image
               src="/icons/close_outline_light_m.svg"
               alt="close"
