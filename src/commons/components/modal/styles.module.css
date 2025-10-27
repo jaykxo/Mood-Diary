@@ -77,7 +77,7 @@
 
 /* Dual Action Buttons */
 .dualButton {
-  flex: 1;
+  width: 104px;
 }
 
 /* ========================================
