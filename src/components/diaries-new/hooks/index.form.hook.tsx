@@ -147,20 +147,22 @@ export const useDiaryForm = (): UseDiaryFormReturn => {
    */
   const showRegistrationSuccessModal = (diaryId: number) => {
     const SuccessModal = () => (
-      <Modal
-        variant="info"
-        actions="single"
-        title="등록 완료"
-        content="일기가 성공적으로 등록되었습니다."
-        confirmText="확인"
-        onConfirm={() => {
-          // 모든 모달 닫기
-          closeAllModals();
-          
-          // 상세페이지로 이동
-          router.push(URL_PATHS.DIARIES.DETAIL(diaryId));
-        }}
-      />
+      <div data-testid="registration-success-modal">
+        <Modal
+          variant="info"
+          actions="single"
+          title="등록 완료"
+          content="일기가 성공적으로 등록되었습니다."
+          confirmText="확인"
+          onConfirm={() => {
+            // 모든 모달 닫기
+            closeAllModals();
+            
+            // 상세페이지로 이동
+            router.push(URL_PATHS.DIARIES.DETAIL(diaryId));
+          }}
+        />
+      </div>
     );
 
     openModal(<SuccessModal />);
