@@ -1,8 +1,12 @@
-"use client";
+'use client';
 
-import { createContext, useContext, useState, ReactNode, useEffect, useCallback } from "react";
-import { createPortal } from "react-dom";
-import styles from "./styles.module.css";
+import { createContext, useContext, useState, ReactNode, useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
+import styles from './styles.module.css';
+
+// ========================================
+// Type Definitions
+// ========================================
 
 interface ModalItem {
   id: string;
@@ -16,24 +20,33 @@ interface ModalContextType {
   hasOpenModal: boolean;
 }
 
+interface ModalProviderProps {
+  children: ReactNode;
+}
+
 const ModalContext = createContext<ModalContextType | undefined>(undefined);
+
+// ========================================
+// Modal Hook
+// ========================================
 
 export const useModal = () => {
   const context = useContext(ModalContext);
   if (!context) {
-    throw new Error("useModal must be used within a ModalProvider");
+    throw new Error('useModal must be used within a ModalProvider');
   }
   return context;
 };
 
-interface ModalProviderProps {
-  children: ReactNode;
-}
+// ========================================
+// Modal Provider Component
+// ========================================
 
 export function ModalProvider({ children }: ModalProviderProps) {
   const [modals, setModals] = useState<ModalItem[]>([]);
   const [isMounted, setIsMounted] = useState(false);
 
+  // 클라이언트 마운트 확인
   useEffect(() => {
     setIsMounted(true);
   }, []);
@@ -41,30 +54,30 @@ export function ModalProvider({ children }: ModalProviderProps) {
   // 모달이 열려있을 때 body 스크롤 제거
   useEffect(() => {
     if (modals.length > 0) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = "";
+      document.body.style.overflow = '';
     }
 
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = '';
     };
   }, [modals.length]);
 
   // ESC 키로 최상위 모달 닫기
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && modals.length > 0) {
+      if (e.key === 'Escape' && modals.length > 0) {
         setModals((prev) => prev.slice(0, -1));
       }
     };
 
     if (modals.length > 0) {
-      document.addEventListener("keydown", handleKeyDown);
+      document.addEventListener('keydown', handleKeyDown);
     }
 
     return () => {
-      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener('keydown', handleKeyDown);
     };
   }, [modals]);
 
@@ -88,13 +101,12 @@ export function ModalProvider({ children }: ModalProviderProps) {
 
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>, index: number) => {
     if (e.target === e.currentTarget) {
-      // 현재 클릭한 모달까지 모두 닫기
       setModals((prev) => prev.slice(0, index));
     }
   };
 
   const modalPortals = isMounted && modals.map((modal, index) => {
-    const zIndex = 1000 + index; // 각 모달마다 증가하는 z-index
+    const zIndex = 1000 + index;
     
     return (
       <div
