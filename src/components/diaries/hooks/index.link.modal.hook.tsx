@@ -1,6 +1,6 @@
 'use client';
 
-import { useModal } from '@/commons/provider/modal/modal.provider';
+import { useModal } from '@/commons/providers/modal/modal.provider';
 import { DiariesNew, DiaryFormData } from '@/components/diaries-new';
 
 // ========================================
@@ -20,7 +20,7 @@ import { DiariesNew, DiaryFormData } from '@/components/diaries-new';
  * @returns {boolean} isModalOpen - 모달이 열려있는지 여부
  */
 export const useDiaryWriteModal = () => {
-  const { isOpen, openModal, closeModal } = useModal();
+  const { hasOpenModal: isOpen, openModal, closeModal } = useModal();
 
   /**
    * 일기쓰기 모달을 여는 함수

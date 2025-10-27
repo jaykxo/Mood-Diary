@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { ModalProvider } from "@/commons/provider/modal/modal.provider";
-import { NextThemesProvider } from "@/commons/provider/next-themes/next-themes.provider";
-import { ReactQueryProvider } from "@/commons/provider/react-query/react-query.provider";
+import { ModalProvider } from "@/commons/providers/modal/modal.provider";
+import { NextThemesProvider } from "@/commons/providers/next-themes/next-themes.provider";
+import { ReactQueryProvider } from "@/commons/providers/react-query/react-query.provider";
 import Layout from "@/commons/layout";
 
 const geistSans = localFont({
