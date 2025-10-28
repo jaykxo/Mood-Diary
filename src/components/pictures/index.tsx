@@ -1,12 +1,24 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 import { Selectbox, SelectOption } from '@/commons/components/selectbox';
+import { usePicturesBinding } from './hooks/index.binding.hook';
 import styles from './styles.module.css';
 
 const PicturesComponent: React.FC = () => {
-  // Mock 데이터
+  const { 
+    dogImages, 
+    isLoading, 
+    isLoadingMore, 
+    error, 
+    lastImageRef,
+    retry
+  } = usePicturesBinding();
+  
+  // 에러가 있을 때 표시
+  const hasError = !!error;
+
+  // Mock 데이터 (필터용)
   const filterOptions: SelectOption[] = [
     { value: 'all', label: '기본' },
     { value: 'dog-1', label: '강아지 1' },
@@ -14,11 +26,15 @@ const PicturesComponent: React.FC = () => {
     { value: 'dog-3', label: '강아지 3' },
   ];
 
-  // 이미지 Mock 데이터 (10개)
-  const imageList = Array.from({ length: 10 }, (_, i) => ({
-    id: i + 1,
-    src: '/images/dog-1.jpg',
-  }));
+  // 스플래시 스크린 컴포넌트
+  const SplashScreen: React.FC = () => (
+    <div className={styles.splashScreen} data-testid="splash-screen">
+      <div className={styles.splashLine}></div>
+      <div className={styles.splashLine}></div>
+      <div className={styles.splashLine}></div>
+      <div className={styles.splashLine}></div>
+    </div>
+  );
 
   return (
     <div className={styles.container} data-testid="pictures-page">
@@ -43,20 +59,50 @@ const PicturesComponent: React.FC = () => {
       {/* Main Content Section */}
       <div className={styles.main}>
         <div className={styles.mainContent}>
+          {/* 에러 메시지 */}
+          {hasError && (
+            <div className={styles.errorMessage} data-testid="error-message">
+              <p>{error}</p>
+              <button onClick={retry}>다시 시도</button>
+            </div>
+          )}
+
           {/* 이미지 그리드 */}
           <div className={styles.imageGrid}>
-            {imageList.map((item) => (
-              <div key={item.id} className={styles.imageItem}>
-                <Image
-                  src={item.src}
-                  alt={`강아지 사진 ${item.id}`}
-                  width={640}
-                  height={640}
-                  className={styles.image}
-                  priority={item.id <= 3}
-                />
-              </div>
-            ))}
+            {/* 초기 로딩 중일 때 스플래시 스크린 표시 */}
+            {isLoading && dogImages.length === 0 ? (
+              Array.from({ length: 6 }, (_, i) => (
+                <div key={`splash-${i}`} className={styles.imageItem}>
+                  <SplashScreen />
+                </div>
+              ))
+            ) : (
+              dogImages.map((item, index) => (
+                <div 
+                  key={item.id} 
+                  className={styles.imageItem}
+                  ref={index === dogImages.length - 2 ? lastImageRef : null}
+                >
+                  <img
+                    src={item.src}
+                    alt={`강아지 사진 ${index + 1}`}
+                    width={640}
+                    height={640}
+                    className={styles.image}
+                    data-testid="dog-image"
+                  />
+                </div>
+              ))
+            )}
+
+            {/* 추가 로딩 중일 때 스플래시 스크린 표시 */}
+            {isLoadingMore && (
+              Array.from({ length: 6 }, (_, i) => (
+                <div key={`loading-more-${i}`} className={styles.imageItem}>
+                  <SplashScreen />
+                </div>
+              ))
+            )}
           </div>
         </div>
       </div>
