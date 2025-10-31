@@ -53,7 +53,7 @@
   color: var(--color-text-secondary);
 }
 
-.loginLink {
+.signupLink {
   font-family: var(--font-family-default);
   font-size: var(--typo-body02-medium-size);
   line-height: var(--typo-body02-medium-line);
@@ -63,11 +63,11 @@
   transition: color 0.2s ease-in-out;
 }
 
-.loginLink:hover {
+.signupLink:hover {
   color: var(--color-primary-hover);
 }
 
-.loginLink:focus-visible {
+.signupLink:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
   border-radius: 4px;

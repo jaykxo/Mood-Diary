@@ -85,7 +85,7 @@ export default function AuthSignup() {
         
         <div className={styles.footer}>
           <span className={styles.footerText}>이미 계정이 있으신가요?</span>
-          <a href="/auth/signin" className={styles.loginLink}>
+          <a href="/auth/login" className={styles.loginLink}>
             로그인
           </a>
         </div>
