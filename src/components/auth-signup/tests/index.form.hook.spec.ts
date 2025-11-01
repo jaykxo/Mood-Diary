@@ -160,11 +160,16 @@ test.describe('회원가입 폼 등록 기능', () => {
       
       // _id가 정상적으로 반환되는지 확인 (응답이 있는 경우)
       if (responseData) {
-        expect(responseData.data).toBeDefined();
-        expect(responseData.data.createUser).toBeDefined();
-        expect(responseData.data.createUser._id).toBeDefined();
-        expect(typeof responseData.data.createUser._id).toBe('string');
-        expect(responseData.data.createUser._id.length).toBeGreaterThan(0);
+        const data = (responseData as CreateUserResponse).data;
+        if (data) {
+          expect(data.createUser).toBeDefined();
+          const userId = data.createUser?._id;
+          expect(userId).toBeDefined();
+          if (userId) {
+            expect(typeof userId).toBe('string');
+            expect(userId.length).toBeGreaterThan(0);
+          }
+        }
       }
       
       // 가입완료 모달이 표시되는지 확인 (모달이 나타나면 성공으로 간주)

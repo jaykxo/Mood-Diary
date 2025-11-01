@@ -4,6 +4,7 @@ import React from 'react';
 import { Input } from '@/commons/components/input';
 import { Button } from '@/commons/components/button';
 import { useAuthSignupForm } from './hooks/index.form.hook';
+import { URL_PATHS } from '@/commons/constants/url';
 import styles from './styles.module.css';
 
 export default function AuthSignup() {
@@ -85,7 +86,7 @@ export default function AuthSignup() {
         
         <div className={styles.footer}>
           <span className={styles.footerText}>이미 계정이 있으신가요?</span>
-          <a href="/auth/login" className={styles.loginLink}>
+          <a href={URL_PATHS.AUTH.LOGIN} className={styles.loginLink}>
             로그인
           </a>
         </div>

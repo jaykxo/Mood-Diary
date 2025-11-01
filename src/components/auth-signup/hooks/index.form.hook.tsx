@@ -53,7 +53,7 @@ const signupSchema = z.object({
 });
 
 // ========================================
-// GraphQL Mutation
+// GraphQL API
 // ========================================
 
 const createUserMutation = `
