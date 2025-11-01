@@ -15,6 +15,7 @@
 .headerContent {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 100%;
   padding: 0;
 }
@@ -33,6 +34,24 @@
   letter-spacing: -0.18px;
   color: var(--color-text-primary);
   margin: 0;
+}
+
+.authStatus {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.userName {
+  font-family: var(--font-family-default);
+  font-size: var(--typo-body01-size);
+  font-weight: var(--typo-body01-weight);
+  line-height: var(--typo-body01-line);
+  color: var(--color-text-primary);
+}
+
+.logoutButton {
+  width: 96px;
 }
 
 .gap {
