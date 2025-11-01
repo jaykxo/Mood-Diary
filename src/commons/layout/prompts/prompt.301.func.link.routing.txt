@@ -40,7 +40,7 @@
                 - 경로를 하드코딩하지 말고, url.ts를 import 하여 적용할 것.
 
             3) header 영역
-                - 로고(민지의다이어리): url.ts에 정의된 일기목록페이지 => /diaries
+                - 로고(명수의다이어리): url.ts에 정의된 일기목록페이지 => /diaries
 
             4) navigation 영역
                 - 일기보관함: url.ts에 정의된 일기목록페이지 => /diaries
