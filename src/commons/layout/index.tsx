@@ -5,6 +5,7 @@ import Image from 'next/image';
 import styles from './styles.module.css';
 import { useLinkRouting } from './hooks/index.link.routing.hook';
 import { useAreaVisibility } from './hooks/index.area.hook';
+import { useAuthHook } from './hooks/index.auth.hook';
 import { Button } from '@/commons/components/button';
 
 // ========================================
@@ -36,6 +37,13 @@ export default function Layout({ children }: LayoutProps) {
     footer: showFooter,
   } = useAreaVisibility();
 
+  const {
+    isLoggedIn,
+    userName,
+    handleLogin,
+    handleLogout,
+  } = useAuthHook();
+
   return (
     <div className={styles.container}>
       {showHeader && (
@@ -43,20 +51,39 @@ export default function Layout({ children }: LayoutProps) {
           <div className={styles.headerContent}>
             {showLogo && (
               <div className={styles.logo} onClick={handleLogoClick} data-testid="logo">
-                <h1 className={styles.logoText}>민지의 다이어리</h1>
+                <h1 className={styles.logoText}>명수의 다이어리</h1>
               </div>
             )}
-            <div className={styles.authStatus}>
-              <span className={styles.userName}>민지</span>
-              <Button
-                variant="secondary"
-                theme="light"
-                size="medium"
-                className={styles.logoutButton}
-              >
-                로그아웃
-              </Button>
-            </div>
+            {isLoggedIn ? (
+              <div className={styles.authStatus}>
+                <span className={styles.userName} data-testid="user-name">
+                  {userName}
+                </span>
+                <Button
+                  variant="secondary"
+                  theme="light"
+                  size="medium"
+                  className={styles.logoutButton}
+                  onClick={handleLogout}
+                  data-testid="logout-button"
+                >
+                  로그아웃
+                </Button>
+              </div>
+            ) : (
+              <div className={styles.authStatus}>
+                <Button
+                  variant="secondary"
+                  theme="light"
+                  size="medium"
+                  className={styles.logoutButton}
+                  onClick={handleLogin}
+                  data-testid="login-button"
+                >
+                  로그인
+                </Button>
+              </div>
+            )}
           </div>
         </header>
       )}
@@ -109,10 +136,10 @@ export default function Layout({ children }: LayoutProps) {
       {showFooter && (
         <footer className={styles.footer}>
           <div className={styles.footerContent}>
-            <h2 className={styles.footerTitle}>민지의 다이어리</h2>
+            <h2 className={styles.footerTitle}>명수의 다이어리</h2>
             <div className={styles.footerInfo}>
-              <p className={styles.footerRepresentative}>대표 : 민지</p>
-              <p className={styles.footerCopyright}>Copyright © 2025. 민지 Co., Ltd.</p>
+              <p className={styles.footerRepresentative}>대표 : 명수</p>
+              <p className={styles.footerCopyright}>Copyright © 2025. 명수 Co., Ltd.</p>
             </div>
           </div>
         </footer>
